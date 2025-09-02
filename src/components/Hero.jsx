@@ -161,7 +161,7 @@ function Hero() {
       {/*  Bottom right box image */}
       <Box
         component="img"
-        src="/images/box.png"
+        src="/images/banner-v1-img5.png"
         alt="Box"
         sx={{
           position: "absolute",
