@@ -14,7 +14,7 @@ function Hero() {
         overflow: "hidden",
       }}
     >
-      {/* 🌍 Background Map Image */}
+      {/*  Background Map Image */}
       <Box
         component="img"
         src="/images/banner-v1-pattern2.png"
@@ -30,7 +30,7 @@ function Hero() {
         }}
       />
 
-      {/* 🔽 Content aligned bottom center */}
+      {/*  Content aligned bottom center */}
       <Box
         sx={{
           position: "absolute",
@@ -53,8 +53,8 @@ function Hero() {
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
-              alignItems: "flex-end", // 👈 right align
-              textAlign: "right", // 👈 text aligned right
+              alignItems: "flex-end", 
+              textAlign: "right", 
               height: "100%",
             }}
           >
@@ -151,14 +151,14 @@ function Hero() {
         </Grid>
       </Box>
 
-      {/* 🔴 Blinking Circles */}
+      {/*  Blinking Circles */}
       <Box className="blink-circle" sx={{ top: "28%", left: "22%" }} />
       <Box className="blink-circle" sx={{ top: "32%", left: "45%" }} />
       <Box className="blink-circle" sx={{ top: "50%", left: "60%" }} />
       <Box className="blink-circle" sx={{ top: "38%", left: "75%" }} />
       {/* <Box className="blink-circle" sx={{ top: "65%", left: "35%" }} /> */}
 
-      {/* 📦 Bottom right box image */}
+      {/*  Bottom right box image */}
       <Box
         component="img"
         src="/images/box.png"

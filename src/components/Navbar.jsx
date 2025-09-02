@@ -30,7 +30,7 @@ function Navbar() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      {/* 🔹 Top Bar */}
+      {/*  Top Bar */}
       <Box
         sx={{
           backgroundColor: "#0b2c3d",
@@ -73,7 +73,7 @@ function Navbar() {
         </Box>
       </Box>
 
-      {/* 🔹 Main Navbar */}
+      {/*  Main Navbar */}
       <AppBar
         position="static"
         sx={{ backgroundColor: "#0f3a4c", boxShadow: "none" }}
@@ -115,7 +115,7 @@ function Navbar() {
               flexGrow: 1,
               display: "flex",
               justifyContent: "center",
-              gap: 5, // 🔹 bigger gap for spacing like reference
+              gap: 5, 
             }}
           >
             {menuItems.map((item) => (
