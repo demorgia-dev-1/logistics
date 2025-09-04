@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
+import WhyChooseUs from "./components/WhyChooseUs";
 //import Services from "./components/Services";
 //import Solutions from "./components/Solutions";
 //import Clients from "./components/Clients";
@@ -15,6 +16,7 @@ function App() {
       <Navbar />
       <section id="hero"><Hero /></section>
       <section id="about"><About /></section>
+      <section id="whyChooseUs"><WhyChooseUs /></section>
       {/* <section id="services"><Services /></section>
       <section id="solutions"><Solutions /></section>
       <section id="clients"><Clients /></section>
