@@ -3,7 +3,7 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import WhyChooseUs from "./components/WhyChooseUs";
-import OurSkills from "./components/OurSkills";
+//import OurSkills from "./components/OurSkills";
 import Services from "./components/Services";
 //import Solutions from "./components/Solutions";
 //import Clients from "./components/Clients";
@@ -19,7 +19,7 @@ function App() {
       <section id="about"><About /></section>
       <section id="whyChooseUs"><WhyChooseUs /></section>
       <section id="services"><Services /></section>
-      <section id="ourSkills"><OurSkills /></section>
+      {/* <section id="ourSkills"><OurSkills /></section> */}
       {/* <section id="services"><Services /></section>
       <section id="solutions"><Solutions /></section>
       <section id="clients"><Clients /></section>
