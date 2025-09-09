@@ -1,546 +1,483 @@
-// import React from "react";
+// import React from 'react';
 // import {
 //   Box,
-//   Grid,
+//   Container,
 //   Typography,
 //   Button,
-//   TextField,
-//   MenuItem,
-//   Stack,
-//   InputAdornment,
-// } from "@mui/material";
-// import PersonIcon from "@mui/icons-material/Person";
-// import EmailIcon from "@mui/icons-material/Email";
-// import PhoneIcon from "@mui/icons-material/Phone";
-// import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
+//   List,
+//   ListItem,
+//   ListItemIcon,
+//   ListItemText,
+//   Stack
+// } from '@mui/material';
+// import { ArrowForward, PlayArrow } from '@mui/icons-material';
+// import { styled } from '@mui/material/styles';
 
-// function WhyChooseUs() {
+// const StyledSection = styled(Box)(({ theme }) => ({
+//   backgroundColor: '#1e293b', // Dark slate fallback
+//   backgroundImage: 'url(/images/why-choose-v1-pattern.png)', // public/images/why-choose-v1-pattern.png
+//   backgroundSize: 'cover',
+//   backgroundPosition: 'center center',
+//   backgroundRepeat: 'no-repeat',
+//   color: 'white',
+//   padding: '80px 0',
+//   position: 'relative',
+//   minHeight: '100vh',
+//   display: 'flex',
+//   alignItems: 'center',
+//   // dark overlay to mute the image like the reference
+//   '&::before': {
+//     content: '""',
+//     position: 'absolute',
+//     top: 0,
+//     left: 0,
+//     width: '70%',
+//     height: '80%',
+//     backgroundColor: 'rgba(30, 41, 59, 0.9)', // adjust alpha (0.0 - 1.0) if you want lighter/darker
+//     zIndex: 1
+//   },
+//   // make sure direct children appear above the overlay
+//   '& > *': {
+//     position: 'relative',
+//     zIndex: 2
+//   }
+// }));
+
+// const SectionHeader = styled(Box)(({ theme }) => ({
+//   display: 'flex',
+//   alignItems: 'center',
+//   gap: '12px',
+//   marginBottom: '24px',
+//   '&::before': {
+//     content: '""',
+//     width: '40px',
+//     height: '2px',
+//     backgroundColor: '#ff4c1c',
+//   }
+// }));
+
+// const HeaderText = styled(Typography)(({ theme }) => ({
+//   color: '#ff4c1c',
+//   fontSize: '14px',
+//   fontWeight: 600,
+//   letterSpacing: '1.5px',
+//   textTransform: 'uppercase'
+// }));
+
+// const MainTitle = styled(Typography)(({ theme }) => ({
+//   fontSize: '3.5rem',
+//   fontWeight: 'bold',
+//   lineHeight: '1.2',
+//   marginBottom: '20px',
+//   [theme.breakpoints.down('md')]: {
+//     fontSize: '2.5rem',
+//   },
+//   [theme.breakpoints.down('sm')]: {
+//     fontSize: '2rem',
+//   }
+// }));
+
+// const HighlightText = styled('span')({
+//   color: '#ff4c1c'
+// });
+
+// const Subtitle = styled(Typography)(({ theme }) => ({
+//   fontSize: '1.25rem',
+//   fontStyle: 'italic',
+//   marginBottom: '20px',
+//   opacity: 0.9,
+//   display: 'flex',
+//   alignItems: 'center',
+//   gap: '12px'
+// }));
+
+// const StyledListItem = styled(ListItem)(({ theme }) => ({
+//   padding: '8px 0',
+//   alignItems: 'flex-start'
+// }));
+
+// const StyledListItemIcon = styled(ListItemIcon)(({ theme }) => ({
+//   color: '#ff4c1c',
+//   minWidth: '32px',
+//   marginTop: '2px'
+// }));
+
+// const ContactButton = styled(Button)(({ theme }) => ({
+//   backgroundColor: '#ff4c1c',
+//   color: 'white',
+//   padding: '12px 32px',
+//   borderRadius: '25px',
+//   fontSize: '16px',
+//   fontWeight: 600,
+//   marginTop: '32px',
+//   textTransform: 'none',
+//   '&:hover': {
+//     backgroundColor: '#ea580c',
+//     transform: 'translateY(-2px)',
+//     boxShadow: '0 8px 25px rgba(249, 115, 22, 0.4)'
+//   },
+//   transition: 'all 0.3s ease'
+// }));
+
+// const WhyChooseUs = () => {
+//   const handleContactClick = () => {
+//     // Redirect to contact form - customize as needed
+//     console.log('Navigate to contact form');
+//     // Example: navigate('/contact') or window.location.href = '/contact'
+//   };
+
+//   const benefits = [
+//     "Government-approved Custom Broker (CHA)",
+//     "Global network of partners & agents", 
+//     "24/7 customer support & real-time updates",
+//     "Proven expertise in Customs, SVB, Bond Sections & Consulting"
+//   ];
+
 //   return (
-//     <Box
-//       id="whychooseus"
-//       sx={{
-//         py: { xs: 6, md: 10 },
-//         px: { xs: 3, md: 8 },
-//         backgroundColor: "#06323A", // dark teal bg
-//         color: "#fff",
-//       }}
-//     >
-//       <Grid
-//         container
-//         spacing={6}
-//         alignItems="center"
-//         justifyContent="center"
-//         sx={{
-//           maxWidth: "1200px",
-//           margin: "0 auto",
-//         }}
-//       >
-//         {/* ---------------- Left Column ---------------- */}
-//         <Grid item xs={12} md={6}>
-//           {/* Section label */}
-//           <Typography
-//             sx={{
-//               fontSize: "0.95rem",
-//               fontWeight: "bold",
-//               color: "#ff4c1c",
-//               textTransform: "uppercase",
-//               letterSpacing: "1px",
-//               mb: 2,
-//               display: "flex",
-//               alignItems: "center",
-//               gap: 1,
-//             }}
-//           >
-//             — Why Choose Us ✈
-//           </Typography>
-
-//           {/* Heading */}
-//           <Typography
-//             variant="h3"
-//             sx={{
-//               fontWeight: "bold",
-//               fontSize: { xs: "2rem", md: "2.6rem" },
-//               lineHeight: 1.3,
-//               mb: 3,
-//             }}
-//           >
-//             Efficient, Safe, & Swift <br />
-//             Logistics{" "}
-//             <span style={{ color: "#ff4c1c" }}>SOLUTION!</span>
-//           </Typography>
-
-//           {/* Bullet points */}
-//           <Stack spacing={2} sx={{ mb: 4 }}>
-//             <Typography sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-//               <span style={{ color: "#ff4c1c" }}>★</span> Make long term
-//               business decisions
-//             </Typography>
-//             <Typography sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-//               <span style={{ color: "#ff4c1c" }}>★</span> Transparent career
-//               journey and support.
-//             </Typography>
-//             <Typography sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-//               <span style={{ color: "#ff4c1c" }}>★</span> Be a responsible
-//               member of the community
-//             </Typography>
-//             <Typography sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-//               <span style={{ color: "#ff4c1c" }}>★</span> Provide a service we
-//               are proud of
-//             </Typography>
-//           </Stack>
-
-//           {/* Button */}
-//           <Button
+//     <StyledSection>
+//       <Container maxWidth="lg">
+//         <Box sx={{ maxWidth: '700px' }}>
+//           {/* Section Header */}
+//           <Stack direction="row" alignItems="center" spacing={1} mb={2}>
+//                         <Typography
+//                           sx={{
+//                             fontSize: "0.95rem",
+//                             fontWeight: "bold",
+//                             color: "#ff4c1c",
+//                             textTransform: "uppercase",
+//                             letterSpacing: "1px",
+//                           }}
+//                         >
+//                           Why Choose Us
+//                         </Typography>
+//                         <Typography sx={{ color: "#ff4c1c" }}>✈</Typography>
+//                       </Stack>
+          
+//           {/* Main Title */}
+//           <MainTitle variant="h2">
+//             Efficient, Safe, & Swift<br />
+//             Logistics <HighlightText>SOLUTION!</HighlightText>
+//           </MainTitle>
+          
+//           {/* Subtitle */}
+//           <Subtitle variant="h6">
+//             <span style={{ fontSize: '24px' }}>🚛</span>
+//             "Your cargo, our responsibility. Together, we move the world."
+//           </Subtitle>
+          
+//           {/* Benefits List */}
+//           <List sx={{ marginBottom: '16px' }}>
+//             {benefits.map((benefit, index) => (
+//               <StyledListItem key={index} disablePadding>
+//                 <StyledListItemIcon>
+//                   <PlayArrow />
+//                 </StyledListItemIcon>
+//                 <ListItemText 
+//                   primary={benefit}
+//                   sx={{ 
+//                     '& .MuiListItemText-primary': { 
+//                       fontSize: '16px',
+//                       lineHeight: '1.6',
+//                       color: 'rgba(255, 255, 255, 0.9)'
+//                     }
+//                   }}
+//                 />
+//               </StyledListItem>
+//             ))}
+//           </List>
+          
+//           {/* Contact Button */}
+//           <ContactButton
 //             variant="contained"
-//             sx={{
-//               backgroundColor: "#ff4c1c",
-//               "&:hover": { backgroundColor: "#e63e10" },
-//               px: 4,
-//               py: 1.5,
-//               fontWeight: "bold",
-//               fontSize: "1rem",
-//               textTransform: "none",
-//               borderRadius: "8px",
-//             }}
+//             endIcon={<ArrowForward />}
+//             onClick={handleContactClick}
 //           >
-//             Contact Us →
-//           </Button>
-//         </Grid>
-
-//         {/* ---------------- Right Column (Form) ---------------- */}
-//         <Grid item xs={12} md={6}>
-//           <Box
-//             sx={{
-//               backgroundColor: "#fff",
-//               color: "#000",
-//               p: 4,
-//               borderRadius: "8px",
-//               boxShadow: 3,
-//             }}
-//           >
-//             <Typography
-//               variant="h5"
-//               fontWeight="bold"
-//               sx={{ mb: 3, color: "#0b1c2c" }}
-//             >
-//               Request a Quote
-//             </Typography>
-
-//             <Grid container spacing={2}>
-//               {/* Name */}
-//               <Grid item xs={12} sm={6}>
-//                 <TextField
-//                   fullWidth
-//                   placeholder="Name"
-//                   InputProps={{
-//                     startAdornment: (
-//                       <InputAdornment position="start">
-//                         <PersonIcon />
-//                       </InputAdornment>
-//                     ),
-//                   }}
-//                 />
-//               </Grid>
-//               {/* Email */}
-//               <Grid item xs={12} sm={6}>
-//                 <TextField
-//                   fullWidth
-//                   placeholder="Email"
-//                   InputProps={{
-//                     startAdornment: (
-//                       <InputAdornment position="start">
-//                         <EmailIcon />
-//                       </InputAdornment>
-//                     ),
-//                   }}
-//                 />
-//               </Grid>
-//               {/* Phone */}
-//               <Grid item xs={12} sm={6}>
-//                 <TextField
-//                   fullWidth
-//                   placeholder="Phone"
-//                   InputProps={{
-//                     startAdornment: (
-//                       <InputAdornment position="start">
-//                         <PhoneIcon />
-//                       </InputAdornment>
-//                     ),
-//                   }}
-//                 />
-//               </Grid>
-//               {/* Date */}
-//               <Grid item xs={12} sm={6}>
-//                 <TextField
-//                   fullWidth
-//                   placeholder="Date"
-//                   InputProps={{
-//                     startAdornment: (
-//                       <InputAdornment position="start">
-//                         <CalendarTodayIcon />
-//                       </InputAdornment>
-//                     ),
-//                   }}
-//                 />
-//               </Grid>
-
-//               {/* Distance (slider + number box imitation) */}
-//               <Grid item xs={12}>
-//                 <Typography sx={{ mb: 1, fontWeight: "bold" }}>
-//                   Distance (Kilo):
-//                 </Typography>
-//                 <Stack
-//                   direction="row"
-//                   alignItems="center"
-//                   spacing={2}
-//                   sx={{ width: "100%" }}
-//                 >
-//                   <input
-//                     type="range"
-//                     min="0"
-//                     max="3000"
-//                     defaultValue="1500"
-//                     style={{ flex: 1, accentColor: "#ff4c1c" }}
-//                   />
-//                   <TextField value="0 - 3000" size="small" />
-//                 </Stack>
-//               </Grid>
-
-//               {/* Freight type */}
-//               <Grid item xs={12} sm={6}>
-//                 <TextField fullWidth select defaultValue="">
-//                   <MenuItem value="">Freight Type</MenuItem>
-//                   <MenuItem value="air">Air Freight</MenuItem>
-//                   <MenuItem value="sea">Sea Freight</MenuItem>
-//                   <MenuItem value="land">Land Transport</MenuItem>
-//                 </TextField>
-//               </Grid>
-
-//               {/* Load type */}
-//               <Grid item xs={12} sm={6}>
-//                 <TextField fullWidth select defaultValue="">
-//                   <MenuItem value="">Load</MenuItem>
-//                   <MenuItem value="small">Small Load</MenuItem>
-//                   <MenuItem value="medium">Medium Load</MenuItem>
-//                   <MenuItem value="large">Large Load</MenuItem>
-//                 </TextField>
-//               </Grid>
-//             </Grid>
-
-//             {/* Button */}
-//             <Button
-//               fullWidth
-//               variant="contained"
-//               sx={{
-//                 mt: 3,
-//                 backgroundColor: "#ff4c1c",
-//                 "&:hover": { backgroundColor: "#e63e10" },
-//                 px: 4,
-//                 py: 1.5,
-//                 fontWeight: "bold",
-//                 fontSize: "1rem",
-//                 textTransform: "none",
-//                 borderRadius: "8px",
-//               }}
-//             >
-//               Contact Us →
-//             </Button>
-//           </Box>
-//         </Grid>
-//       </Grid>
-//     </Box>
+//             Contact Us
+//           </ContactButton>
+//         </Box>
+//       </Container>
+//     </StyledSection>
 //   );
-// }
+// };
 
 // export default WhyChooseUs;
-import React from "react";
+import React from 'react';
 import {
   Box,
-  Grid,
+  Container,
   Typography,
   Button,
-  TextField,
-  InputAdornment,
-  MenuItem,
-} from "@mui/material";
-import PersonIcon from "@mui/icons-material/Person";
-import EmailIcon from "@mui/icons-material/Email";
-import PhoneIcon from "@mui/icons-material/Phone";
-import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  Stack
+} from '@mui/material';
+import { ArrowForward, PlayArrow } from '@mui/icons-material';
+import { styled } from '@mui/material/styles';
+import { motion } from 'framer-motion';
 
-function WhyChooseUs() {
+// Wave animation variants
+const waveContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.04,
+      staggerDirection: -1,
+    },
+  },
+};
+
+const waveItem = {
+  hidden: { opacity: 0, y: 6 },
+  visible: { opacity: 1, y: 0 },
+};
+
+const StyledSection = styled(Box)(({ theme }) => ({
+  backgroundColor: '#1e293b', // Dark slate fallback
+  backgroundImage: 'url(/images/why-choose-v1-pattern.png)', // path in public/images/
+  backgroundSize: '70% auto',
+  backgroundPosition: 'right center',
+  backgroundRepeat: 'no-repeat',
+  color: 'white',
+  padding: '80px 0',
+  position: 'relative',
+  minHeight: '100vh',
+  display: 'flex',
+  alignItems: 'center',
+
+  // dark overlay to mute the image
+  '&::before': {
+    content: '""',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    backgroundColor: 'rgba(30, 41, 59, 0.78)', // tweak alpha to lighten/darken
+    zIndex: 1
+  },
+
+  // ensure content sits above overlay
+  '& > *': {
+    position: 'relative',
+    zIndex: 2
+  }
+}));
+
+const SectionHeader = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  alignItems: 'center',
+  gap: '12px',
+  marginBottom: '8px', // reduced gap
+  '&::before': {
+    content: '""',
+    width: '40px',
+    height: '2px',
+    backgroundColor: '#ff4c1c',
+  }
+}));
+
+const MainTitle = styled(Typography)(({ theme }) => ({
+  // container style; actual characters rendered via motion spans
+  fontSize: '3.5rem',
+  fontWeight: '700',
+  lineHeight: 1.05,
+  marginBottom: '12px',
+  [theme.breakpoints.down('md')]: {
+    fontSize: '2.5rem',
+  },
+  [theme.breakpoints.down('sm')]: {
+    fontSize: '2rem',
+  }
+}));
+
+const HighlightText = styled('span')({
+  color: '#ff4c1c'
+});
+
+const Subtitle = styled(Typography)(({ theme }) => ({
+  fontSize: '1.1rem',
+  fontStyle: 'italic',
+  marginBottom: '12px', // reduced gap
+  opacity: 0.95,
+  display: 'flex',
+  alignItems: 'center',
+  gap: '12px',
+  textAlign: 'left'
+}));
+
+const StyledListItem = styled(ListItem)(({ theme }) => ({
+  padding: '6px 0', // reduced padding
+  alignItems: 'flex-start'
+}));
+
+const StyledListItemIcon = styled(ListItemIcon)(({ theme }) => ({
+  color: '#ff4c1c',
+  minWidth: '32px',
+  marginTop: '6px'
+}));
+
+const ContactButton = styled(Button)(({ theme }) => ({
+  backgroundColor: '#ff4c1c',
+  color: 'white',
+  padding: '10px 28px',
+  borderRadius: '25px',
+  fontSize: '16px',
+  fontWeight: 600,
+  marginTop: '12px', // reduced gap
+  textTransform: 'none',
+  '&:hover': {
+    backgroundColor: '#ea580c',
+    transform: 'translateY(-2px)',
+    boxShadow: '0 8px 25px rgba(249, 115, 22, 0.4)'
+  },
+  transition: 'all 0.3s ease'
+}));
+
+const WhyChooseUs = () => {
+  const handleContactClick = () => {
+    // Redirect to contact form - customize as needed
+    console.log('Navigate to contact form');
+    // Example: navigate('/contact') or window.location.href = '/contact'
+  };
+
+  const benefits = [
+    "Government-approved Custom Broker (CHA)",
+    "Global network of partners & agents",
+    "24/7 customer support & real-time updates",
+    "Proven expertise in Customs, SVB, Bond Sections & Consulting"
+  ];
+
   return (
-    <Box
-      id="whychooseus"
-      sx={{
-        py: { xs: 6, md: 10 },
-        px: { xs: 2, md: 8 },
-        backgroundColor: "#06323A",
-        color: "#fff",
-      }}
-    >
-      {/* 👇 Inline CSS for slider + dropdown overrides */}
-      <style>{`
-        input[type="range"] {
-          -webkit-appearance: none;
-          width: 100%;
-          height: 6px;
-          background: #ddd;
-          border-radius: 5px;
-          outline: none;
-        }
-        input[type="range"]::-webkit-slider-runnable-track {
-          height: 6px;
-          background: #ff4c1c;
-          border-radius: 5px;
-        }
-        input[type="range"]::-webkit-slider-thumb {
-          -webkit-appearance: none;
-          appearance: none;
-          width: 18px;
-          height: 18px;
-          background: #fff;
-          border: 2px solid #ff4c1c;
-          border-radius: 50%;
-          cursor: pointer;
-          margin-top: -6px;
-        }
-        input[type="range"]::-moz-range-thumb {
-          width: 18px;
-          height: 18px;
-          background: #fff;
-          border: 2px solid #ff4c1c;
-          border-radius: 50%;
-          cursor: pointer;
-        }
-        /* Dropdown placeholder color */
-        .MuiSelect-select {
-          color: #555 !important;
-        }
-      `}</style>
-
-      <Grid
-        container
-        spacing={6}
-        alignItems="stretch"
-        justifyContent="center"
-        columnSpacing={{ xs: 0, md: 20 }}
-        sx={{ maxWidth: "1200px", margin: "0 auto" }}
-      >
-        {/* ---------------- Left Column ---------------- */}
-        <Grid item xs={12} md={6}>
-          <Typography
-            sx={{
-              fontSize: "0.95rem",
-              fontWeight: "bold",
-              color: "#ff4c1c",
-              textTransform: "uppercase",
-              letterSpacing: "1px",
-              mb: 2,
-            }}
-          >
-            — Why Choose Us ✈
-          </Typography>
-
-          <Typography
-            variant="h3"
-            sx={{
-              fontWeight: "bold",
-              fontSize: { xs: "2rem", md: "2.6rem" },
-              lineHeight: 1.3,
-              mb: 3,
-            }}
-          >
-            Efficient, Safe, & Swift <br />
-            Logistics <span style={{ color: "#ff4c1c" }}>SOLUTION!</span>
-          </Typography>
-
-          <ul style={{ marginBottom: "24px", paddingLeft: "18px", color: "#fff" }}>
-            <li>Make long term business decisions</li>
-            <li>Transparent career journey and support.</li>
-            <li>Be a responsible member of the community</li>
-            <li>Provide a service we are proud of</li>
-          </ul>
-
-          <Button
-            variant="contained"
-            sx={{
-              backgroundColor: "#ff4c1c",
-              "&:hover": { backgroundColor: "#e63e10" },
-              px: 4,
-              py: 1.5,
-              fontWeight: "bold",
-              fontSize: "1rem",
-              textTransform: "none",
-              borderRadius: "8px",
-              width: "fit-content",
-            }}
-          >
-            Contact Us →
-          </Button>
-        </Grid>
-
-        {/* ---------------- Right Column (Form) ---------------- */}
-        <Grid item xs={12} md={6}>
-          <Box
-            sx={{
-              backgroundColor: "#fff",
-              color: "#000",
-              p: 4,
-              borderRadius: "8px",
-              boxShadow: 3,
-              width: "100%",
-              maxWidth: { md: 600 },
-            }}
-          >
+    <StyledSection>
+      <Container maxWidth="lg">
+        <Box sx={{ maxWidth: '700px' /* keep left-aligned text layout */ }}>
+          {/* Section Header */}
+          <Stack direction="row" alignItems="center" spacing={1} mb={1}>
             <Typography
-              variant="h5"
-              fontWeight="bold"
-              sx={{ mb: 3, color: "#0b1c2c" }}
-            >
-              Request a Quote
-            </Typography>
-
-            <Grid container spacing={2}>
-              {/* Name */}
-              <Grid item xs={12} md={6}>
-                <TextField
-                  fullWidth
-                  placeholder="Name"
-                  variant="outlined"
-                  InputProps={{
-                    startAdornment: (
-                      <InputAdornment position="start">
-                        <PersonIcon />
-                      </InputAdornment>
-                    ),
-                  }}
-                />
-              </Grid>
-
-              {/* Email */}
-              <Grid item xs={12} md={6}>
-                <TextField
-                  fullWidth
-                  placeholder="Email"
-                  variant="outlined"
-                  InputProps={{
-                    startAdornment: (
-                      <InputAdornment position="start">
-                        <EmailIcon />
-                      </InputAdornment>
-                    ),
-                  }}
-                />
-              </Grid>
-
-              {/* Phone */}
-              <Grid item xs={12} md={6}>
-                <TextField
-                  fullWidth
-                  placeholder="Phone"
-                  variant="outlined"
-                  InputProps={{
-                    startAdornment: (
-                      <InputAdornment position="start">
-                        <PhoneIcon />
-                      </InputAdornment>
-                    ),
-                  }}
-                />
-              </Grid>
-
-              {/* Date */}
-              <Grid item xs={12} md={6}>
-                <TextField
-                  fullWidth
-                  placeholder="Date"
-                  variant="outlined"
-                  InputProps={{
-                    startAdornment: (
-                      <InputAdornment position="start">
-                        <CalendarTodayIcon />
-                      </InputAdornment>
-                    ),
-                  }}
-                />
-              </Grid>
-
-              {/* Distance */}
-              <Grid item xs={12}>
-                <Typography sx={{ mb: 1, fontWeight: "bold" }}>
-                  Distance (Kilo):
-                </Typography>
-                <Grid container spacing={2} alignItems="center">
-                  <Grid item xs={8} sm={9}>
-                    <input type="range" min="0" max="3000" defaultValue="1500" />
-                  </Grid>
-                  <Grid item xs={4} sm={3}>
-                    <TextField
-                      value="0 - 3000"
-                      size="small"
-                      fullWidth
-                      InputProps={{ readOnly: true }}
-                    />
-                  </Grid>
-                </Grid>
-              </Grid>
-
-              {/* Freight Type */}
-              <Grid item xs={12} md={6}>
-                <TextField
-                  fullWidth
-                  select
-                  defaultValue=""
-                  variant="outlined"
-                  displayEmpty
-                >
-                  <MenuItem value="">Freight Type</MenuItem>
-                  <MenuItem value="air">Air Freight</MenuItem>
-                  <MenuItem value="sea">Sea Freight</MenuItem>
-                  <MenuItem value="land">Land Transport</MenuItem>
-                </TextField>
-              </Grid>
-
-              {/* Load */}
-              <Grid item xs={12} md={6}>
-                <TextField
-                  fullWidth
-                  select
-                  defaultValue=""
-                  variant="outlined"
-                  displayEmpty
-                >
-                  <MenuItem value="">Load</MenuItem>
-                  <MenuItem value="small">Small Load</MenuItem>
-                  <MenuItem value="medium">Medium Load</MenuItem>
-                  <MenuItem value="large">Large Load</MenuItem>
-                </TextField>
-              </Grid>
-            </Grid>
-
-            <Button
-              fullWidth
-              variant="contained"
               sx={{
-                mt: 3,
-                backgroundColor: "#ff4c1c",
-                "&:hover": { backgroundColor: "#e63e10" },
-                px: 4,
-                py: 1.5,
+                fontSize: "0.95rem",
                 fontWeight: "bold",
-                fontSize: "1rem",
-                textTransform: "none",
-                borderRadius: "8px",
+                color: "#ff4c1c",
+                textTransform: "uppercase",
+                letterSpacing: "1px",
               }}
             >
-              Contact Us →
-            </Button>
+              Why Choose Us
+            </Typography>
+            <Typography sx={{ color: "#ff4c1c" }}>✈</Typography>
+          </Stack>
+
+          {/* Animated Main Title - two parts with underline only under SOLUTIONS */}
+          <Box sx={{ mb: 1 }}>
+            {/* First line: Efficient, Safe and Swift Logistics */}
+            <motion.div
+              variants={waveContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.6 }}
+              style={{ display: 'inline-block', lineHeight: 1.05 }}
+            >
+              {"Efficient, Safe and Swift Logistics".split("").map((char, i) => (
+                <motion.span
+                  key={`p1-${i}`}
+                  variants={waveItem}
+                  style={{
+                    display: 'inline-block',
+                    fontWeight: 700,
+                    fontSize: '3.5rem',
+                    lineHeight: 1.05,
+                    marginRight: char === " " ? "0.38rem" : 0,
+                    color: '#ffffff',
+                    verticalAlign: 'top'
+                  }}
+                >
+                  {char === " " ? '\u00A0' : char}
+                </motion.span>
+              ))}
+            </motion.div>
+
+            {/* Second line: SOLUTIONS (highlighted with underline only here) */}
+            <motion.div
+              variants={waveContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.6 }}
+              style={{ display: 'inline-block', position: 'relative', marginTop: 6 }}
+            >
+              {"SOLUTIONS".split("").map((char, i) => (
+                <motion.span
+                  key={`p2-${i}`}
+                  variants={waveItem}
+                  style={{
+                    display: 'inline-block',
+                    fontWeight: 700,
+                    fontSize: '3.5rem',
+                    lineHeight: 1.05,
+                    marginRight: char === " " ? "0.38rem" : 0,
+                    color: '#ff4c1c',
+                    textTransform: 'uppercase',
+                  }}
+                >
+                  {char === " " ? '\u00A0' : char}
+                </motion.span>
+              ))}
+
+              {/* Underline ONLY under SOLUTIONS */}
+              <span
+                style={{
+                  position: 'absolute',
+                  bottom: -8,
+                  left: 0,
+                  width: '100%',
+                  height: '4px',
+                  backgroundColor: '#ff4c1c',
+                }}
+              />
+            </motion.div>
           </Box>
-        </Grid>
-      </Grid>
-    </Box>
+
+          {/* Subtitle */}
+          <Subtitle variant="h6">
+            {/* <span style={{ fontSize: '22px' }}>🚛</span> */}
+            "Your cargo, our responsibility. Together, we move the world."
+          </Subtitle>
+
+          {/* Benefits List */}
+          <List sx={{ marginBottom: '8px' }}>
+            {benefits.map((benefit, index) => (
+              <StyledListItem key={index} disablePadding>
+                <StyledListItemIcon>
+                  <PlayArrow />
+                </StyledListItemIcon>
+                <ListItemText
+                  primary={benefit}
+                  sx={{
+                    '& .MuiListItemText-primary': {
+                      fontSize: '16px',
+                      lineHeight: '1.5',
+                      color: 'rgba(255, 255, 255, 0.92)'
+                    }
+                  }}
+                />
+              </StyledListItem>
+            ))}
+          </List>
+
+          {/* Contact Button */}
+          <ContactButton
+            variant="contained"
+            endIcon={<ArrowForward />}
+            onClick={handleContactClick}
+          >
+            Contact Us
+          </ContactButton>
+        </Box>
+      </Container>
+    </StyledSection>
   );
-}
+};
 
 export default WhyChooseUs;
