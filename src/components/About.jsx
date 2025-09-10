@@ -1,3 +1,4 @@
+// import React from "react";
 // import {
 //   Box,
 //   Typography,
@@ -30,6 +31,55 @@
 // };
 
 // function AboutSection() {
+//   // helper to render a sentence word-by-word while keeping per-char animation
+//   const renderWavySentence = (sentence, isBig = false) => {
+//     // split into words
+//     const words = sentence.split(" ");
+//     return (
+//       <motion.div
+//         variants={waveContainer}
+//         initial="hidden"
+//         whileInView="visible"
+//         viewport={{ once: true, amount: 0.6 }}
+//         style={{ display: "inline-block" }}
+//       >
+//         {words.map((word, wIdx) => (
+//           // outer span keeps word together (no breaking inside word)
+//           <span
+//             key={`word-${wIdx}-${word}`}
+//             style={{
+//               display: "inline-block",
+//               whiteSpace: "nowrap", // prevents intra-word breaks
+//               marginRight: "0.35rem",
+//             }}
+//           >
+//             {word.split("").map((char, cIdx) => (
+//               <motion.span
+//                 key={`c-${wIdx}-${cIdx}`}
+//                 variants={waveItem}
+//                 style={{
+//                   display: "inline-block",
+//                   fontWeight: "bold",
+//                   // use CSS variables for responsive sizes (set on parent Box)
+//                   fontSize: isBig ? "var(--h2)" : "var(--h1)",
+//                   lineHeight: 1.3,
+//                   marginRight: char === " " ? "0.25rem" : 0,
+//                   color: isBig ? "#ff4c1c" : "#0b1c2c",
+//                   textTransform: isBig ? "uppercase" : "none",
+//                   letterSpacing: isBig ? "0.01em" : "normal",
+//                 }}
+//               >
+//                 {char}
+//               </motion.span>
+//             ))}
+//             {/* add a visible space between words (keeps wrap behaviour) */}
+//             <span style={{ display: "inline-block", width: "0.12rem" }} />
+//           </span>
+//         ))}
+//       </motion.div>
+//     );
+//   };
+
 //   return (
 //     <Box
 //       id="about"
@@ -39,6 +89,14 @@
 //         backgroundColor: "#fff",
 //         display: "flex",
 //         justifyContent: "center",
+//         // CSS variables for responsive heading sizes:
+//         // desktop (md and up) matches your previous sizes; xs is smaller
+//         "--h1": { xs: "1.4rem", md: "2rem" },
+//         "--h2": { xs: "1.8rem", md: "2.6rem" },
+//         // safety for wrapping
+//         overflowWrap: "break-word",
+//         wordBreak: "normal",
+//         hyphens: "auto",
 //       }}
 //     >
 //       <Grid
@@ -77,54 +135,21 @@
 
 //             {/* Wavy Heading */}
 //             <Box sx={{ mb: 3 }}>
-//               <motion.div
-//                 variants={waveContainer}
-//                 initial="hidden"
-//                 whileInView="visible"
-//                 viewport={{ once: true, amount: 0.6 }}
-//               >
-//                 {"Our Expertise Stands in".split("").map((char, index) => (
-//                   <motion.span
-//                     key={index}
-//                     variants={waveItem}
-//                     style={{
-//                       display: "inline-block",
-//                       fontWeight: "bold",
-//                       fontSize: "2rem",
-//                       lineHeight: 1.3,
-//                       marginRight: char === " " ? "0.25rem" : 0,
-//                       color: "#0b1c2c",
-//                     }}
-//                   >
-//                     {char}
-//                   </motion.span>
-//                 ))}
-//               </motion.div>
+//               {/* First line: "Our Expertise Stands in" */}
+//               <Box sx={{ display: "block", mb: 0.5 }}>
+//                 {renderWavySentence("Our Expertise Stands in", false)}
+//               </Box>
 
-//               <motion.div
-//                 variants={waveContainer}
-//                 initial="hidden"
-//                 whileInView="visible"
-//                 viewport={{ once: true, amount: 0.6 }}
-//                 style={{ position: "relative", display: "inline-block" }}
+//               {/* Second line: "LOGISTICS SOLUTIONS" */}
+//               <Box
+//                 sx={{
+//                   display: "inline-block",
+//                   position: "relative",
+//                   // ensure the underline width matches the rendered text:
+//                   // underline will be absolutely positioned relative to this box.
+//                 }}
 //               >
-//                 {"LOGISTICS SOLUTIONS".split("").map((char, index) => (
-//                   <motion.span
-//                     key={index}
-//                     variants={waveItem}
-//                     style={{
-//                       display: "inline-block",
-//                       fontWeight: "bold",
-//                       fontSize: "2.6rem",
-//                       lineHeight: 1.3,
-//                       marginRight: char === " " ? "0.35rem" : 0,
-//                       color: "#ff4c1c",
-//                       textTransform: "uppercase",
-//                     }}
-//                   >
-//                     {char}
-//                   </motion.span>
-//                 ))}
+//                 {renderWavySentence("LOGISTICS SOLUTIONS", true)}
 
 //                 {/* Underline */}
 //                 <span
@@ -137,7 +162,7 @@
 //                     backgroundColor: "#ff4c1c",
 //                   }}
 //                 />
-//               </motion.div>
+//               </Box>
 //             </Box>
 
 //             {/* Paragraph */}
@@ -366,6 +391,7 @@ import PublicIcon from "@mui/icons-material/Public";
 import SupportAgentIcon from "@mui/icons-material/SupportAgent";
 import PhoneIcon from "@mui/icons-material/Phone";
 import { motion } from "framer-motion";
+import { Link as RouterLink } from "react-router-dom"; // ✅ Added import
 
 // Wave animation variants
 const waveContainer = {
@@ -398,12 +424,11 @@ function AboutSection() {
         style={{ display: "inline-block" }}
       >
         {words.map((word, wIdx) => (
-          // outer span keeps word together (no breaking inside word)
           <span
             key={`word-${wIdx}-${word}`}
             style={{
               display: "inline-block",
-              whiteSpace: "nowrap", // prevents intra-word breaks
+              whiteSpace: "nowrap",
               marginRight: "0.35rem",
             }}
           >
@@ -414,7 +439,6 @@ function AboutSection() {
                 style={{
                   display: "inline-block",
                   fontWeight: "bold",
-                  // use CSS variables for responsive sizes (set on parent Box)
                   fontSize: isBig ? "var(--h2)" : "var(--h1)",
                   lineHeight: 1.3,
                   marginRight: char === " " ? "0.25rem" : 0,
@@ -426,7 +450,6 @@ function AboutSection() {
                 {char}
               </motion.span>
             ))}
-            {/* add a visible space between words (keeps wrap behaviour) */}
             <span style={{ display: "inline-block", width: "0.12rem" }} />
           </span>
         ))}
@@ -443,11 +466,8 @@ function AboutSection() {
         backgroundColor: "#fff",
         display: "flex",
         justifyContent: "center",
-        // CSS variables for responsive heading sizes:
-        // desktop (md and up) matches your previous sizes; xs is smaller
         "--h1": { xs: "1.4rem", md: "2rem" },
         "--h2": { xs: "1.8rem", md: "2.6rem" },
-        // safety for wrapping
         overflowWrap: "break-word",
         wordBreak: "normal",
         hyphens: "auto",
@@ -458,10 +478,7 @@ function AboutSection() {
         spacing={6}
         alignItems="center"
         columnSpacing={{ xs: 0, md: 20 }}
-        sx={{
-          maxWidth: "1200px",
-          width: "100%",
-        }}
+        sx={{ maxWidth: "1200px", width: "100%" }}
       >
         {/* ---------------- Left Column ---------------- */}
         <Grid item xs={12} md={6}>
@@ -471,7 +488,6 @@ function AboutSection() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true, amount: 0.3 }}
           >
-            {/* Section label */}
             <Stack direction="row" alignItems="center" spacing={1} mb={2}>
               <Typography
                 sx={{
@@ -489,23 +505,13 @@ function AboutSection() {
 
             {/* Wavy Heading */}
             <Box sx={{ mb: 3 }}>
-              {/* First line: "Our Expertise Stands in" */}
               <Box sx={{ display: "block", mb: 0.5 }}>
                 {renderWavySentence("Our Expertise Stands in", false)}
               </Box>
 
-              {/* Second line: "LOGISTICS SOLUTIONS" */}
-              <Box
-                sx={{
-                  display: "inline-block",
-                  position: "relative",
-                  // ensure the underline width matches the rendered text:
-                  // underline will be absolutely positioned relative to this box.
-                }}
-              >
+              <Box sx={{ display: "inline-block", position: "relative" }}>
                 {renderWavySentence("LOGISTICS SOLUTIONS", true)}
 
-                {/* Underline */}
                 <span
                   style={{
                     position: "absolute",
@@ -519,7 +525,6 @@ function AboutSection() {
               </Box>
             </Box>
 
-            {/* Paragraph */}
             <Typography
               sx={{
                 color: "text.secondary",
@@ -555,9 +560,7 @@ function AboutSection() {
                       }}
                     >
                       <motion.div
-                        variants={{
-                          hover: { rotateY: 180 },
-                        }}
+                        variants={{ hover: { rotateY: 180 } }}
                         transition={{ duration: 0.6 }}
                         style={{ display: "inline-block" }}
                       >
@@ -598,9 +601,7 @@ function AboutSection() {
                       }}
                     >
                       <motion.div
-                        variants={{
-                          hover: { rotateY: 180 },
-                        }}
+                        variants={{ hover: { rotateY: 180 } }}
                         transition={{ duration: 0.6 }}
                         style={{ display: "inline-block" }}
                       >
@@ -629,7 +630,10 @@ function AboutSection() {
               spacing={3}
               alignItems={{ xs: "flex-start", sm: "center" }}
             >
+              {/* ✅ Updated Button with RouterLink */}
               <Button
+                component={RouterLink}
+                to="/about"
                 variant="contained"
                 sx={{
                   backgroundColor: "#ff4c1c",
@@ -644,6 +648,7 @@ function AboutSection() {
               >
                 More About Us →
               </Button>
+
               <Stack>
                 <Typography
                   variant="body2"
@@ -674,18 +679,13 @@ function AboutSection() {
             viewport={{ once: true, amount: 0.3 }}
           >
             <Box sx={{ position: "relative" }}>
-              {/* Plane Image */}
               <Box
                 component="img"
                 src="/images/plane.jpg"
                 alt="Plane"
-                sx={{
-                  width: "100%",
-                  borderRadius: "8px",
-                }}
+                sx={{ width: "100%", borderRadius: "8px" }}
               />
 
-              {/* Woman Image Overlay */}
               <Box
                 component="img"
                 src="/images/lady.jpg"
@@ -700,7 +700,6 @@ function AboutSection() {
                 }}
               />
 
-              {/* Circular Badge */}
               <Box
                 sx={{
                   position: "absolute",

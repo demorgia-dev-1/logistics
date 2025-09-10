@@ -153,7 +153,7 @@ const WhyChooseUs = () => {
   };
 
   return (
-    <StyledSection>
+    <StyledSection id="why-choose-us">
       <Container maxWidth={false} sx={{ px: { xs: 3, md: 6 }, position: "relative" }}>
         <Grid container spacing={4} alignItems="center" justifyContent={"center"}>
           {/* LEFT: content */}
@@ -236,28 +236,35 @@ const WhyChooseUs = () => {
                   <TextField fullWidth label="Phone" variant="outlined" size="medium" />
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                  <TextField
-                    fullWidth
-                    label="Date"
-                    type="date"
-                    InputLabelProps={{ shrink: true }}
-                    variant="outlined"
-                    size="medium"
-                    sx={{
-                      "& .MuiInputBase-root": {
-                        height: "56px",             // match other fields
-                        display: "flex",
-                        alignItems: "center",
-                      },
-                      "& input": {
-                        width: "100%",              // ✅ force full stretch
-                        padding: "14px",            // same padding as text inputs
-                        boxSizing: "border-box",    // prevent overflow
-                      },
-                    }}
-                  />
+  <TextField
+    fullWidth
+    label="Date"
+    // type="date"
+    InputLabelProps={{ shrink: true }}
+    variant="outlined"
+    size="medium"
+    sx={{
+      "& .MuiInputBase-root": {
+        height: "56px", // force wrapper height
+        display: "flex",
+        alignItems: "center",
+      },
+      "& input": {
+        padding: "16.5px 14px", // match textfields
+        height: "100%",         // stretch to parent
+        boxSizing: "border-box",
+        fontSize: "16px",
+        lineHeight: "1.4375em",
+      },
+      "&::-webkit-calendar-picker-indicator": {
+        marginRight: 0,         // align calendar icon
+        cursor: "pointer",
+      },
+    }}
+  />
+</Grid>
 
-                </Grid>
+
 
                 {/* Row 3: Message */}
                 <Grid item xs={12} sx={{ flexBasis: "100%", maxWidth: "100%" }}>

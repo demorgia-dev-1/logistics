@@ -18,7 +18,6 @@
 //   Instagram,
 //   LinkedIn,
 //   Search,
-//   LocalShipping,
 //   Menu as MenuIcon,
 //   Phone,
 //   Email,
@@ -34,9 +33,27 @@
 
 //   const menuItems = ["Home", "About Us", "Services", "Blog", "Contact"];
 
+//   // ✅ Mapping tabs to section IDs
+//   const sectionIds = {
+//     Home: "home",
+//     "About Us": "about",
+//     Contact: "why-choose-us",
+//   };
+
+//   const handleScroll = (item) => {
+//     setActive(item);
+//     const sectionId = sectionIds[item];
+//     if (sectionId) {
+//       const section = document.getElementById(sectionId);
+//       if (section) {
+//         section.scrollIntoView({ behavior: "smooth" });
+//       }
+//     }
+//   };
+
 //   return (
 //     <Box sx={{ flexGrow: 1 }}>
-//       {/* Top Bar (scrolls away normally) */}
+//       {/* Top Bar */}
 //       {!isMobile && (
 //         <Box
 //           sx={{
@@ -48,7 +65,7 @@
 //             px: 4,
 //             height: 50,
 //             fontSize: "14px",
-//             position: "relative", // ✅ topbar scrolls with page
+//             position: "relative",
 //             zIndex: 1000,
 //           }}
 //         >
@@ -93,14 +110,14 @@
 //         </Box>
 //       )}
 
-//       {/* Main Navbar (always visible, fixed at top) */}
+//       {/* Main Navbar */}
 //       <AppBar
 //         position="fixed"
 //         sx={{
 //           backgroundColor: "#0f3a4c",
 //           boxShadow: "none",
 //           top: 0,
-//           zIndex: 1200, // above everything
+//           zIndex: 1200,
 //         }}
 //       >
 //         <Toolbar
@@ -132,7 +149,11 @@
 //                 ml: -2.8,
 //               }}
 //             >
-//               <LocalShipping sx={{ fontSize: 36, color: "white", mr: 1 }} />
+//               <img
+//                 src="/public/images/Demorgia (1).png"
+//                 alt="Demorgia Logo"
+//                 style={{ height: 40, width: "auto", marginRight: 10 }}
+//               />
 //               <Box sx={{ display: "flex", flexDirection: "column" }}>
 //                 <Typography
 //                   variant="h5"
@@ -163,15 +184,7 @@
 //               {menuItems.map((item) => (
 //                 <Button
 //                   key={item}
-//                   onClick={() => {
-//                     setActive(item);
-//                     const section = document.getElementById(
-//                       item.toLowerCase().replace(/\s+/g, "")
-//                     );
-//                     if (section) {
-//                       section.scrollIntoView({ behavior: "smooth" });
-//                     }
-//                   }}
+//                   onClick={() => handleScroll(item)}
 //                   sx={{
 //                     color: active === item ? "#ff4c1c" : "white",
 //                     fontWeight: active === item ? "bold" : "normal",
@@ -228,14 +241,8 @@
 //                 button
 //                 key={item}
 //                 onClick={() => {
-//                   setActive(item);
+//                   handleScroll(item);
 //                   setOpenDrawer(false);
-//                   const section = document.getElementById(
-//                     item.toLowerCase().replace(/\s+/g, "")
-//                   );
-//                   if (section) {
-//                     section.scrollIntoView({ behavior: "smooth" });
-//                   }
 //                 }}
 //               >
 //                 <ListItemText
@@ -307,6 +314,25 @@ function Navbar() {
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   const menuItems = ["Home", "About Us", "Services", "Blog", "Contact"];
+
+  // ✅ Mapping tabs to section IDs
+  const sectionIds = {
+    Home: "hero",
+    "About Us": "about",
+    Services: "services",
+    Contact: "why-choose-us",
+  };
+
+  const handleScroll = (item) => {
+    setActive(item);
+    const sectionId = sectionIds[item];
+    if (sectionId) {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -406,7 +432,6 @@ function Navbar() {
                 ml: -2.8,
               }}
             >
-              {/* ✅ Company Logo instead of Truck Icon */}
               <img
                 src="/public/images/Demorgia (1).png"
                 alt="Demorgia Logo"
@@ -442,15 +467,7 @@ function Navbar() {
               {menuItems.map((item) => (
                 <Button
                   key={item}
-                  onClick={() => {
-                    setActive(item);
-                    const section = document.getElementById(
-                      item.toLowerCase().replace(/\s+/g, "")
-                    );
-                    if (section) {
-                      section.scrollIntoView({ behavior: "smooth" });
-                    }
-                  }}
+                  onClick={() => handleScroll(item)}
                   sx={{
                     color: active === item ? "#ff4c1c" : "white",
                     fontWeight: active === item ? "bold" : "normal",
@@ -507,14 +524,8 @@ function Navbar() {
                 button
                 key={item}
                 onClick={() => {
-                  setActive(item);
+                  handleScroll(item);
                   setOpenDrawer(false);
-                  const section = document.getElementById(
-                    item.toLowerCase().replace(/\s+/g, "")
-                  );
-                  if (section) {
-                    section.scrollIntoView({ behavior: "smooth" });
-                  }
                 }}
               >
                 <ListItemText
