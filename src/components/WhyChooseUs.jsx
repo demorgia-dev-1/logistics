@@ -236,7 +236,8 @@ const WhyChooseUs = () => {
                   <TextField fullWidth label="Phone" variant="outlined" size="medium" />
                 </Grid>
                 <Grid item xs={12} sm={6}>
-  <TextField
+                  <TextField fullWidth label="Date" variant="outlined" size="medium" />
+  {/* <TextField
     fullWidth
     label="Date"
     // type="date"
@@ -261,7 +262,7 @@ const WhyChooseUs = () => {
         cursor: "pointer",
       },
     }}
-  />
+  /> */}
 </Grid>
 
 
