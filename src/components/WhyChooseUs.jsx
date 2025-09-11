@@ -15,6 +15,7 @@ import {
 import { ArrowForward, PlayArrow } from "@mui/icons-material";
 import { styled } from "@mui/material/styles";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom"; 
 
 // Wave animation variants
 const waveContainer = {
@@ -27,7 +28,7 @@ const waveItem = { hidden: { opacity: 0, y: 6 }, visible: { opacity: 1, y: 0 } }
 const StyledSection = styled("section")(({ theme }) => ({
   width: "100%",
   backgroundColor: "#1e293b",
-  backgroundImage: "url(/images/why-choose-v1-pattern.png)", // replace if needed
+  backgroundImage: "url(/images/why-choose-v1-pattern.png)", 
   backgroundSize: "90% auto",
   backgroundPosition: "right center",
   backgroundRepeat: "no-repeat",
@@ -107,6 +108,7 @@ const FormButton = styled(Button)({
 });
 
 const WhyChooseUs = () => {
+  const navigate = useNavigate();
   const benefits = [
     "Government-approved Custom Broker (CHA)",
     "Global network of partners & agents",
@@ -201,7 +203,11 @@ const WhyChooseUs = () => {
                 ))}
               </List>
 
-              <ContactButton variant="contained" endIcon={<ArrowForward />}>
+              <ContactButton
+                variant="contained"
+                endIcon={<ArrowForward />}
+                onClick={() => navigate("/contact")} 
+              >
                 Contact Us
               </ContactButton>
             </Box>
@@ -237,38 +243,12 @@ const WhyChooseUs = () => {
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <TextField fullWidth label="Date" variant="outlined" size="medium" />
-  {/* <TextField
-    fullWidth
-    label="Date"
-    // type="date"
-    InputLabelProps={{ shrink: true }}
-    variant="outlined"
-    size="medium"
-    sx={{
-      "& .MuiInputBase-root": {
-        height: "56px", // force wrapper height
-        display: "flex",
-        alignItems: "center",
-      },
-      "& input": {
-        padding: "16.5px 14px", // match textfields
-        height: "100%",         // stretch to parent
-        boxSizing: "border-box",
-        fontSize: "16px",
-        lineHeight: "1.4375em",
-      },
-      "&::-webkit-calendar-picker-indicator": {
-        marginRight: 0,         // align calendar icon
-        cursor: "pointer",
-      },
-    }}
-  /> */}
-</Grid>
+                </Grid>
 
 
 
                 {/* Row 3: Message */}
-                <Grid item xs={12} sx={{ flexBasis: "100%", maxWidth: "100%" }}>
+                <Grid item xs={12} sx={{ flexBasis: "100%", maxWidth: "93%" }}>
                   <TextField
                     fullWidth
                     label="Message"
@@ -280,7 +260,9 @@ const WhyChooseUs = () => {
                 </Grid>
               </Grid>
 
-              <Box mt={3}>
+              <Box mt={3}
+              sx={{ flexBasis: "100%", maxWidth: "93%" }}
+              >
                 <FormButton fullWidth>Submit Request</FormButton>
               </Box>
             </Box>

@@ -36,9 +36,6 @@ function Hero() {
         sx={{
           position: "absolute",
           bottom: { xs: "5%", md: "10%" },
-
-          /* Move centered on desktop, but align left on mobile so text
-             starts near the left edge like your mobile screenshot */
           left: { xs: "5%", md: "50%" },
           transform: { xs: "none", md: "translateX(-50%)" },
 
@@ -65,8 +62,6 @@ function Hero() {
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
-
-              /* For mobile align left, for desktop keep align right */
               alignItems: { xs: "flex-start", md: "flex-end" },
               textAlign: { xs: "left", md: "right" },
 
@@ -83,7 +78,7 @@ function Hero() {
                 variant="h3"
                 fontWeight="bold"
                 sx={{
-                  fontSize: { xs: "2.6rem", md: "3.5rem" }, // slightly larger on mobile to match screenshot
+                  fontSize: { xs: "2.6rem", md: "3.5rem" }, 
                   lineHeight: 1.1,
                 }}
               >
@@ -102,7 +97,7 @@ function Hero() {
                 sx={{
                   color: "#ff4c1c",
                   mb: 1,
-                  fontSize: { xs: "3.4rem", md: "3.5rem" }, // big orange line on mobile
+                  fontSize: { xs: "3.4rem", md: "3.5rem" }, 
                   lineHeight: 1.05,
                 }}
               >
@@ -173,7 +168,7 @@ function Hero() {
                   color: "rgba(255,255,255,0.85)",
                   mb: 3,
                   maxWidth: { xs: "100%", md: 500 },
-                  fontSize: { xs: "1.05rem", md: "1rem" }, // slightly larger for mobile readability
+                  fontSize: { xs: "1.05rem", md: "1rem" }, 
                   lineHeight: { xs: 1.6, md: 1.6 },
                 }}
               >
@@ -200,7 +195,7 @@ function Hero() {
                   textTransform: "none",
                   borderRadius: "8px",
 
-                  /* On mobile make the button a bit wider and aligned to left */
+                  
                   alignSelf: { xs: "flex-start", md: "flex-start" },
                 }}
                 onClick={() => {
