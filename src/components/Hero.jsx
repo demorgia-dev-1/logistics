@@ -203,6 +203,12 @@ function Hero() {
                   /* On mobile make the button a bit wider and aligned to left */
                   alignSelf: { xs: "flex-start", md: "flex-start" },
                 }}
+                onClick={() => {
+                  const section = document.getElementById("about");
+                  if (section) {
+                    section.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
               >
                 About Us →
               </Button>
