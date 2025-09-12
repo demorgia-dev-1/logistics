@@ -8,11 +8,21 @@ function Hero() {
     <Box
       id="hero"
       sx={{
-        height: "100vh",
+        // height: { xs: "calc(100vh - 70px)", md: "100vh" },
+        // pt: { xs: "64px", md: "80px" },
+        // position: "relative",
+        // color: "white",
+        // backgroundColor: "#0b1c2c",
+        // overflow: "hidden",
+        //boxSizing: "border-box",
+        minHeight: "100vh",
         position: "relative",
         color: "white",
         backgroundColor: "#0b1c2c",
         overflow: "hidden",
+
+        // 👇 Fix for navbar overlap
+        mt: { xs: "120px", md: "0px" }, 
       }}
     >
       {/* Background Map Image */}

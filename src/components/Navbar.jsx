@@ -44,6 +44,7 @@ function Navbar() {
     "About Us": "about",
     Services: "services",
     Contact: "contact",
+    Blog: "blogs",
   };
 
   const handleScroll = (item) => {
@@ -164,7 +165,7 @@ function Navbar() {
                 ml: -2.8,
               }}
             >
-              {/* ✅ Independent Larger Logo without stretching navbar */}
+              {/*  Logo  */}
               <Box
                 sx={{
                   height: 60, // fixed container height
@@ -195,12 +196,7 @@ function Navbar() {
                 >
                   Demorgia Aviation & Logistics
                 </Typography>
-                <Typography
-                  variant="body2"
-                  sx={{ color: "white", fontSize: "15px", lineHeight: 1 }}
-                >
-                  Transport Solution
-                </Typography>
+                
               </Box>
             </Box>
           </Box>

@@ -71,7 +71,7 @@ const Footer = () => {
         >
           {/* Column 1: Logo & About */}
           <Grid item xs={12} sm={6} md={3}>
-            <Box display="flex" alignItems="center" gap={2} mb={2}>
+            <Box display="flex" alignItems="center" gap={1} mb={2}>
               {/* Logo */}
               <Box
                 sx={{
@@ -99,9 +99,14 @@ const Footer = () => {
 
               <Typography
                 variant="h5"
-                sx={{ fontWeight: 720, mt: -4.6 }}
+                sx={{ fontWeight: 720, mt: -2, 
+                  mb: 2,
+                  ml: 1,
+                lineHeight: 1,
+                maxWidth: { xs: "100%", md: 280 },
+                }}
               >
-                Demorgia Aviation & Logistics
+                Demorgia Aviation & Logistics Pvt Ltd
               </Typography>
             </Box>
 
@@ -253,12 +258,15 @@ const Footer = () => {
 
             <Box sx={{ display: "flex", alignItems: "center", gap: 1.5, mb: 1.5 }}>
               <PlaceIcon sx={{ fontSize: 22, color: "#ff4c1c" }} />
-              <Typography variant="body1">123 Logistics Hub, Mumbai, India</Typography>
+              <Typography variant="body1" sx={{mb: 2,
+                lineHeight: 1.8,
+                maxWidth: { xs: "100%", md: 280 },}}>2nd Floor Plot No. 02 Khasra No. 348/02, 
+                Sahabad, Muhammadpur Near Bansal Farm New Delhi - 110061</Typography>
             </Box>
 
             <Box sx={{ display: "flex", alignItems: "center", gap: 1.5, mb: 1.5 }}>
               <PhoneIcon sx={{ fontSize: 22, color: "#ff4c1c" }} />
-              <Typography variant="body1">+91 98765 43210</Typography>
+              <Typography variant="body1">+91 1146078736</Typography>
             </Box>
 
             <Box sx={{ display: "flex", alignItems: "center", gap: 1.5, mb: 2 }}>

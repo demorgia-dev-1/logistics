@@ -14,21 +14,13 @@ import {
 } from "@mui/material";
 import { ArrowForward, PlayArrow } from "@mui/icons-material";
 import { styled } from "@mui/material/styles";
-import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom"; 
-
-// Wave animation variants
-const waveContainer = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { staggerChildren: 0.04, staggerDirection: -1 } },
-};
-const waveItem = { hidden: { opacity: 0, y: 6 }, visible: { opacity: 1, y: 0 } };
+import { useNavigate } from "react-router-dom";
 
 // Styled section (full width)
 const StyledSection = styled("section")(({ theme }) => ({
   width: "100%",
   backgroundColor: "#1e293b",
-  backgroundImage: "url(/images/why-choose-v1-pattern.png)", 
+  backgroundImage: "url(/images/why-choose-v1-pattern.png)",
   backgroundSize: "90% auto",
   backgroundPosition: "right center",
   backgroundRepeat: "no-repeat",
@@ -116,44 +108,6 @@ const WhyChooseUs = () => {
     "Proven expertise in Customs, SVB, Bond Sections & Consulting",
   ];
 
-  const renderWordWavy = (sentence, large = false) => {
-    const words = sentence.split(" ");
-    return (
-      <motion.div
-        variants={waveContainer}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.6 }}
-        style={{ display: "inline-block", lineHeight: 1.05 }}
-      >
-        {words.map((word, wIdx) => (
-          <span
-            key={`w-${wIdx}-${word}`}
-            style={{ display: "inline-block", whiteSpace: "nowrap", marginRight: "0.35rem", verticalAlign: "top" }}
-          >
-            {word.split("").map((ch, cIdx) => (
-              <motion.span
-                key={`c-${wIdx}-${cIdx}`}
-                variants={waveItem}
-                style={{
-                  display: "inline-block",
-                  fontWeight: 700,
-                  fontSize: "var(--h1, 3.5rem)",
-                  lineHeight: 1.05,
-                  marginRight: ch === " " ? "0.38rem" : 0,
-                  color: large ? "#ff4c1c" : "#ffffff",
-                  textTransform: large ? "uppercase" : "none",
-                }}
-              >
-                {ch === " " ? "\u00A0" : ch}
-              </motion.span>
-            ))}
-          </span>
-        ))}
-      </motion.div>
-    );
-  };
-
   return (
     <StyledSection id="why-choose-us">
       <Container maxWidth={false} sx={{ px: { xs: 3, md: 6 }, position: "relative" }}>
@@ -165,23 +119,47 @@ const WhyChooseUs = () => {
                 width: "100%",
                 maxWidth: { xs: "100%", md: "680px" },
                 pr: { xs: 0, md: 6 },
-                "--h1": { xs: "2rem", sm: "2.2rem", md: "3.5rem" },
               }}
             >
               <Stack direction="row" alignItems="center" spacing={1} mb={1}>
-                <Typography sx={{ fontSize: "0.95rem", fontWeight: "bold", color: "#ff4c1c", textTransform: "uppercase", letterSpacing: "1px" }}>
+                <Typography
+                  sx={{
+                    fontSize: "0.95rem",
+                    fontWeight: "bold",
+                    color: "#ff4c1c",
+                    textTransform: "uppercase",
+                    letterSpacing: "1px",
+                  }}
+                >
                   Why Choose Us
                 </Typography>
                 <Typography sx={{ color: "#ff4c1c" }}>✈</Typography>
               </Stack>
 
-              {/* Title: Logistics + SOLUTIONS side by side */}
+              {/* Title: Logistics + SOLUTIONS */}
               <Box sx={{ display: "flex", alignItems: "baseline", flexWrap: "wrap", gap: 1, mb: 1 }}>
-                {renderWordWavy("Efficient, Safe and Swift Logistics", false)}
-                {renderWordWavy("SOLUTIONS", true)}
+                <Typography
+                  variant="h3"
+                  sx={{ fontWeight: 700, color: "white", lineHeight: 1.2 }}
+                >
+                  Efficient, Safe and Swift Logistics
+                </Typography>
+                <Typography
+                  variant="h3"
+                  sx={{
+                    fontWeight: 700,
+                    color: "#ff4c1c",
+                    textTransform: "uppercase",
+                    lineHeight: 1.2,
+                  }}
+                >
+                  SOLUTIONS
+                </Typography>
               </Box>
 
-              <Subtitle variant="h6">"Your cargo, our responsibility. Together, we move the world."</Subtitle>
+              <Subtitle variant="h6">
+                "Your cargo, our responsibility. Together, we move the world."
+              </Subtitle>
 
               <List sx={{ marginBottom: "8px" }}>
                 {benefits.map((benefit, index) => (
@@ -206,7 +184,7 @@ const WhyChooseUs = () => {
               <ContactButton
                 variant="contained"
                 endIcon={<ArrowForward />}
-                onClick={() => navigate("/contact")} 
+                onClick={() => navigate("/contact")}
               >
                 Contact Us
               </ContactButton>
@@ -214,7 +192,12 @@ const WhyChooseUs = () => {
           </Grid>
 
           {/* RIGHT: form card */}
-          <Grid item xs={12} md={6} sx={{ display: "flex", justifyContent: { xs: "center", md: "flex-end" } }}>
+          <Grid
+            item
+            xs={12}
+            md={6}
+            sx={{ display: "flex", justifyContent: { xs: "center", md: "center" } }}
+          >
             <Box
               sx={{
                 width: { xs: "100%", md: 560 },
@@ -224,7 +207,10 @@ const WhyChooseUs = () => {
                 boxShadow: "0px 6px 25px rgba(0,0,0,0.15)",
               }}
             >
-              <Typography variant="h5" sx={{ fontWeight: 700, mb: 2, color: "#0f172a" }}>
+              <Typography
+                variant="h3"
+                sx={{ fontWeight: 700, mb: 2, color: "#0f172a" }}
+              >
                 Request a Quote
               </Typography>
 
@@ -245,8 +231,6 @@ const WhyChooseUs = () => {
                   <TextField fullWidth label="Date" variant="outlined" size="medium" />
                 </Grid>
 
-
-
                 {/* Row 3: Message */}
                 <Grid item xs={12} sx={{ flexBasis: "100%", maxWidth: "93%" }}>
                   <TextField
@@ -260,9 +244,7 @@ const WhyChooseUs = () => {
                 </Grid>
               </Grid>
 
-              <Box mt={3}
-              sx={{ flexBasis: "100%", maxWidth: "93%" }}
-              >
+              <Box mt={3} sx={{ flexBasis: "100%", maxWidth: "93%" }}>
                 <FormButton fullWidth>Submit Request</FormButton>
               </Box>
             </Box>

@@ -6,18 +6,10 @@ import LocalShippingOutlinedIcon from "@mui/icons-material/LocalShippingOutlined
 import FlightTakeoffOutlinedIcon from "@mui/icons-material/FlightTakeoffOutlined";
 import DirectionsBoatOutlinedIcon from "@mui/icons-material/DirectionsBoatOutlined";
 import WarehouseOutlinedIcon from "@mui/icons-material/WarehouseOutlined";
-import { motion } from "framer-motion";
 
 // slick carousel css
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
-/* ================= ANIMATION VARIANTS ================= */
-const waveContainer = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { staggerChildren: 0.05 } },
-};
-const waveItem = { hidden: { opacity: 0, y: 6 }, visible: { opacity: 1, y: 0 } };
 
 /* ================= STYLED ================= */
 const Section = styled(Box)(() => ({ background: "#F7F8FA", padding: "72px 0" }));
@@ -67,11 +59,11 @@ const CarouselWrapper = styled("div")(() => ({
 const StyledCard = styled(Card)(() => ({
   background: "transparent",
   boxShadow: "none",
-  borderRadius: 12,
+  borderRadius: 4,
   overflow: "visible",
   position: "relative",
   transition: "all 0.35s ease",
-  height: "100%",
+  height: "120%",
   display: "flex",
   flexDirection: "column",
   justifyContent: "flex-start",
@@ -88,9 +80,9 @@ const StyledCard = styled(Card)(() => ({
 
 const ImageWrapper = styled("div")(() => ({
   position: "relative",
-  borderRadius: 12,
+  borderRadius: 4,
   overflow: "hidden",
-  height: 260,
+  height: 280,
   background: "#eee",
   boxShadow: "0 8px 30px rgba(0,0,0,0.08)",
   zIndex: 1,
@@ -98,12 +90,22 @@ const ImageWrapper = styled("div")(() => ({
   "@media (min-width: 481px) and (max-width: 768px)": { height: 200 },
 }));
 
-const ImageBox = styled("img")(() => ({ width: "100%", height: "100%", objectFit: "cover", display: "block", transition: "transform 0.6s ease" }));
-const ShineOverlay = styled("div")(() => ({ position: "absolute", inset: 0, pointerEvents: "none" }));
+const ImageBox = styled("img")(() => ({
+  width: "120%",
+  height: "120%",
+  objectFit: "cover",
+  display: "block",
+  transition: "transform 0.6s ease",
+}));
+const ShineOverlay = styled("div")(() => ({
+  position: "absolute",
+  inset: 0,
+  pointerEvents: "none",
+}));
 
 const ContentPanel = styled(CardContent)(() => ({
   background: "#fff",
-  borderRadius: 8,
+  borderRadius: 4,
   marginTop: -48,
   marginLeft: 16,
   marginRight: 16,
@@ -131,9 +133,9 @@ const ContentPanel = styled(CardContent)(() => ({
 }));
 
 const CardTitle = styled(Typography)(() => ({
-  fontWeight: 800,
+  fontWeight: 600,
   color: "#0b2b33",
-  fontSize: "1.05rem",
+  fontSize: 16,
   marginBottom: "8px",
   "@media (max-width: 480px)": { fontSize: "1.05rem" },
 }));
@@ -163,18 +165,48 @@ const Badge = styled("div")(() => ({
   "@media (max-width: 480px)": { right: 10, width: 46, height: 46, bottom: -18 },
 }));
 
-const ReadMore = styled("a")(() => ({ color: "#0b2b33", fontWeight: 700, textDecoration: "none", display: "inline-flex", gap: 8, alignItems: "center" }));
+const ReadMore = styled("a")(() => ({
+  color: "#0b2b33",
+  fontWeight: 700,
+  textDecoration: "none",
+  display: "inline-flex",
+  gap: 8,
+  alignItems: "center",
+}));
 
 /* ================= DATA ================= */
 const services = [
-  { key: "customs", image: "/images/customs.jpg", title: "Customs Clearing", desc: "Efficient clearance with accurate documentation and compliance.", icon: <LocalShippingOutlinedIcon sx={{ fontSize: 28 }} /> },
-  { key: "freight", image: "/images/freightforwarding.jpg", title: "Freight Forwarding", desc: "Reliable freight management for air, sea, and inland routes with optimized solutions.", icon: <FlightTakeoffOutlinedIcon sx={{ fontSize: 28 }} /> },
-  { key: "warehouse", image: "/images/warehousing.jpg", title: "Warehousing", desc: "Cost-effective warehousing solutions ensuring timely operations and coverage.", icon: <DirectionsBoatOutlinedIcon sx={{ fontSize: 28 }} /> },
-  { key: "consulting", image: "/images/consulting.jpg", title: "SVB & Bond Consulting", desc: "Expert consulting for SVB and bonded transactions.", icon: <WarehouseOutlinedIcon sx={{ fontSize: 28 }} /> },
+  {
+    key: "customs",
+    image: "/images/customs.jpg",
+    title: "Customs Clearing",
+    desc: "Efficient clearance with accurate documentation and compliance.",
+    icon: <LocalShippingOutlinedIcon sx={{ fontSize: 28 }} />,
+  },
+  {
+    key: "freight",
+    image: "/images/freightforwarding.jpg",
+    title: "Freight Forwarding",
+    desc: "Reliable freight management for air, sea, and inland routes with optimized solutions.",
+    icon: <FlightTakeoffOutlinedIcon sx={{ fontSize: 28 }} />,
+  },
+  {
+    key: "warehouse",
+    image: "/images/warehousing.jpg",
+    title: "Warehousing",
+    desc: "Cost-effective warehousing solutions ensuring timely operations and coverage.",
+    icon: <DirectionsBoatOutlinedIcon sx={{ fontSize: 28 }} />,
+  },
+  {
+    key: "consulting",
+    image: "/images/consulting.jpg",
+    title: "SVB & Bond Consulting",
+    desc: "Expert consulting for SVB and bonded transactions.",
+    icon: <WarehouseOutlinedIcon sx={{ fontSize: 28 }} />,
+  },
 ];
 
 /* ================= SLIDER SETTINGS ================= */
-
 const sliderSettings = {
   className: "services-slider",
   dots: true,
@@ -193,7 +225,6 @@ const sliderSettings = {
   touchThreshold: 10,
   responsive: [
     {
-      // Tablet: show 2
       breakpoint: 1024,
       settings: {
         slidesToShow: 2,
@@ -203,7 +234,6 @@ const sliderSettings = {
       },
     },
     {
-      // Mobile
       breakpoint: 600,
       settings: {
         slidesToShow: 1,
@@ -220,30 +250,46 @@ export default function Services() {
   return (
     <Section id="services">
       <Container maxWidth="lg">
-        <Box sx={{ textAlign: "center" }}>
+        <Box sx={{ textAlign: "center", mb: 2, lineHeight: 1.2 }}>
           <Label>— OUR SERVICE ✈</Label>
 
-          {/* Animated Heading */}
+          {/* Plain Heading */}
           <Box sx={{ mb: 5 }}>
-            <motion.div variants={waveContainer} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.6 }} style={{ display: "inline-block" }}>
-              {"Provide Efficient Logistics".split("").map((char, idx) => (
-                <motion.span key={idx} variants={waveItem} style={{ display: "inline-block", fontWeight: "800", fontSize: "2.6rem", color: "#0b2b33", marginRight: char === " " ? "0.35rem" : 0 }}>
-                  {char}
-                </motion.span>
-              ))}
-            </motion.div>
+            <Typography
+              variant="h3"
+              sx={{
+                fontWeight: 750,
+                fontSize: { xs: 32, md: 56 },
+                color: "#0b2b33",
+                lineHeight: 1.2,
+              }}
+            >
+              Provide Efficient Logistics
+            </Typography>
 
-            <br />
-
-            <motion.div variants={waveContainer} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.6 }} style={{ display: "inline-block", position: "relative" }}>
-              {"SOLUTIONS".split("").map((char, idx) => (
-                <motion.span key={idx} variants={waveItem} style={{ display: "inline-block", fontWeight: "800", fontSize: "2.6rem", color: "#ff4c1c", marginRight: char === " " ? "0.35rem" : 0 }}>
-                  {char}
-                </motion.span>
-              ))}
-
-              <span style={{ position: "absolute", bottom: -4, left: 0, width: "100%", height: "3px", backgroundColor: "#ff4c1c" }} />
-            </motion.div>
+            <Typography
+              variant="h3"
+              sx={{
+                fontWeight: 750,
+                fontSize: { xs: 32, md: 56 },
+                color: "#ff4c1c",
+                textTransform: "uppercase",
+                position: "relative",
+                display: "inline-block",
+              }}
+            >
+              SOLUTIONS
+              <span
+                style={{
+                  position: "absolute",
+                  bottom: 4,
+                  left: 0,
+                  width: "100%",
+                  height: "4px",
+                  backgroundColor: "#ff4c1c",
+                }}
+              />
+            </Typography>
           </Box>
         </Box>
 
@@ -284,7 +330,6 @@ export default function Services() {
         </CarouselWrapper>
       </Container>
 
-      
       <style>{`
         .services-slider .slick-slide > div {
           height: 100%;
@@ -325,14 +370,12 @@ export default function Services() {
           fill: #fff !important;
         }
 
-        /* Tablet: 2 cards (keeps desktop unchanged) */
         @media (max-width: 1024px) and (min-width: 601px) {
           .services-slider .slick-slide { width: 50% !important; }
           .services-slider .slick-list, .services-slider .slick-track { display: block !important; }
           .services-slider .slick-dots li button:before { font-size: 11px; opacity: 0.95; }
         }
 
-        /* Mobile: force single slide occupying full width (no peek) */
         @media (max-width: 600px) {
           .services-slider .slick-slide { display: block !important; float: none !important; width: 100% !important; }
           .services-slider .slick-list, .services-slider .slick-track { display: block !important; }
@@ -343,7 +386,6 @@ export default function Services() {
           .services-slider .MuiCardContent-root { margin-left: 12px !important; margin-right: 12px !important; padding: 16px !important; }
         }
 
-        /* ensure arrows are hidden on desktop */
         @media (min-width: 769px) {
           .services-slider .slick-arrow { display: none !important; }
         }
