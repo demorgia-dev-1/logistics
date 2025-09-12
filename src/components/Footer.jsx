@@ -61,7 +61,7 @@ const Footer = () => {
       {/* Top Section: 4 columns */}
       <Container
         maxWidth={false}
-        sx={{ px: { xs: 3, md: 12 }, position: "relative" }}
+        sx={{ px: { xs: 3, md: 12 }, position: "relative", mb: -4, mr: -1, mt: -3 }}
       >
         <Grid
           container
@@ -71,7 +71,7 @@ const Footer = () => {
         >
           {/* Column 1: Logo & About */}
           <Grid item xs={12} sm={6} md={3}>
-            <Box display="flex" alignItems="center" gap={1} mb={2}>
+            <Box display="flex" alignItems="center" gap={2} mb={3} sx={{mr: -1}}>
               {/* Logo */}
               <Box
                 sx={{
@@ -247,6 +247,7 @@ const Footer = () => {
               sx={{
                 fontWeight: 700,
                 mb: 2,
+                mr: -2,
                 display: "flex",
                 alignItems: "center",
                 gap: 1,
@@ -257,7 +258,7 @@ const Footer = () => {
             </Typography>
 
             <Box sx={{ display: "flex", alignItems: "center", gap: 1.5, mb: 1.5 }}>
-              <PlaceIcon sx={{ fontSize: 22, color: "#ff4c1c" }} />
+              <PlaceIcon sx={{ fontSize: 22, color: "#ff4c1c", mt: -9 }} />
               <Typography variant="body1" sx={{mb: 2,
                 lineHeight: 1.8,
                 maxWidth: { xs: "100%", md: 280 },}}>2nd Floor Plot No. 02 Khasra No. 348/02, 
@@ -330,7 +331,7 @@ const Footer = () => {
             }}
           >
             <Typography variant="body1" sx={{ color: "rgba(255,255,255,0.9)" }}>
-              © 2025 Vikram Aviation & Logistics Pvt Ltd. All Rights Reserved.
+              © 2025 Demorgia Aviation & Logistics Pvt Ltd. All Rights Reserved.
             </Typography>
 
             <Box display="flex" gap={3}>

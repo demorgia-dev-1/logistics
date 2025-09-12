@@ -12,7 +12,11 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 /* ================= STYLED ================= */
-const Section = styled(Box)(() => ({ background: "#F7F8FA", padding: "72px 0" }));
+const Section = styled(Box)(() => ({
+  background: "#F7F8FA",
+  padding: "72px 0",
+}));
+
 const Label = styled(Typography)(() => ({
   color: "#ff4c1c",
   fontWeight: 700,
@@ -25,37 +29,6 @@ const Label = styled(Typography)(() => ({
   marginBottom: "12px",
 }));
 
-const CarouselWrapper = styled("div")(() => ({
-  ".services-slider .slick-slide": {
-    padding: "0 18px",
-    boxSizing: "border-box",
-    display: "flex",
-    alignItems: "stretch",
-    paddingBottom: 20,
-  },
-  ".services-slider .slick-list": {
-    margin: "0 -18px",
-  },
-
-  "@media (max-width: 1024px)": {
-    ".services-slider .slick-slide": {
-      padding: "0 12px",
-    },
-    ".services-slider .slick-list": {
-      margin: "0 -12px",
-    },
-  },
-
-  "@media (max-width: 600px)": {
-    ".services-slider .slick-slide": {
-      padding: "0 8px",
-    },
-    ".services-slider .slick-list": {
-      margin: "0 -8px",
-    },
-  },
-}));
-
 const StyledCard = styled(Card)(() => ({
   background: "transparent",
   boxShadow: "none",
@@ -63,19 +36,11 @@ const StyledCard = styled(Card)(() => ({
   overflow: "visible",
   position: "relative",
   transition: "all 0.35s ease",
-  height: "120%",
+  height: "100%",
   display: "flex",
   flexDirection: "column",
   justifyContent: "flex-start",
-
-  "@media (max-width: 480px)": {
-    maxWidth: "94%",
-    margin: "0 auto",
-  },
-  "@media (min-width: 481px) and (max-width: 768px)": {
-    maxWidth: "88%",
-    margin: "0 auto",
-  },
+  maxWidth: "100%",
 }));
 
 const ImageWrapper = styled("div")(() => ({
@@ -86,17 +51,18 @@ const ImageWrapper = styled("div")(() => ({
   background: "#eee",
   boxShadow: "0 8px 30px rgba(0,0,0,0.08)",
   zIndex: 1,
+  "@media (max-width: 768px)": { height: 220 },
   "@media (max-width: 480px)": { height: 180 },
-  "@media (min-width: 481px) and (max-width: 768px)": { height: 200 },
 }));
 
 const ImageBox = styled("img")(() => ({
-  width: "120%",
-  height: "120%",
+  width: "100%",
+  height: "100%",
   objectFit: "cover",
   display: "block",
   transition: "transform 0.6s ease",
 }));
+
 const ShineOverlay = styled("div")(() => ({
   position: "absolute",
   inset: 0,
@@ -117,18 +83,17 @@ const ContentPanel = styled(CardContent)(() => ({
   flexDirection: "column",
   justifyContent: "space-between",
   zIndex: 2,
-
-  "@media (max-width: 480px)": {
-    marginLeft: 12,
-    marginRight: 12,
-    padding: "18px",
-    minHeight: 160,
-  },
-  "@media (min-width: 481px) and (max-width: 768px)": {
+  "@media (max-width: 768px)": {
     marginLeft: 12,
     marginRight: 12,
     padding: "20px",
-    minHeight: 165,
+    minHeight: 160,
+  },
+  "@media (max-width: 480px)": {
+    marginLeft: 10,
+    marginRight: 10,
+    padding: "16px",
+    minHeight: 150,
   },
 }));
 
@@ -137,14 +102,12 @@ const CardTitle = styled(Typography)(() => ({
   color: "#0b2b33",
   fontSize: 16,
   marginBottom: "8px",
-  "@media (max-width: 480px)": { fontSize: "1.05rem" },
 }));
 
 const CardText = styled(Typography)(() => ({
   color: "rgba(11,43,51,0.7)",
   fontSize: "0.95rem",
   lineHeight: 1.6,
-  "@media (max-width: 480px)": { fontSize: "0.95rem", lineHeight: 1.5 },
 }));
 
 const Badge = styled("div")(() => ({
@@ -161,8 +124,8 @@ const Badge = styled("div")(() => ({
   color: "#fff",
   transition: "all 0.4s ease",
   zIndex: 3,
-  "@media (max-width: 768px)": { right: 12, width: 48, height: 48, bottom: -22 },
-  "@media (max-width: 480px)": { right: 10, width: 46, height: 46, bottom: -18 },
+  "@media (max-width: 768px)": { width: 48, height: 48, bottom: -22, right: 12 },
+  "@media (max-width: 480px)": { width: 44, height: 44, bottom: -18, right: 10 },
 }));
 
 const ReadMore = styled("a")(() => ({
@@ -215,31 +178,34 @@ const sliderSettings = {
   slidesToShow: 3,
   slidesToScroll: 1,
   autoplay: true,
-  autoplaySpeed: 5000,
-  pauseOnHover: true,
-  pauseOnDotsHover: true,
-  swipeToSlide: true,
-  draggable: true,
-  adaptiveHeight: true,
+  autoplaySpeed: 5000, // Desktop
   arrows: false,
-  touchThreshold: 10,
   responsive: [
     {
-      breakpoint: 1024,
+      breakpoint: 1024, // Tablet
       settings: {
         slidesToShow: 2,
         slidesToScroll: 1,
-        centerMode: false,
-        arrows: false,
+        autoplay: true,
+        autoplaySpeed: 3000,
       },
     },
     {
-      breakpoint: 600,
+      breakpoint: 768, // Mobile landscape
       settings: {
         slidesToShow: 1,
         slidesToScroll: 1,
-        centerMode: false,
-        arrows: false,
+        autoplay: true,
+        autoplaySpeed: 3000,
+      },
+    },
+    {
+      breakpoint: 600, // Mobile portrait
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 3000,
       },
     },
   ],
@@ -250,92 +216,96 @@ export default function Services() {
   return (
     <Section id="services">
       <Container maxWidth="lg">
-        <Box sx={{ textAlign: "center", mb: 2, lineHeight: 1.2 }}>
+        {/* Heading */}
+        <Box sx={{ textAlign: "center", mb: 5, lineHeight: 1.2 }}>
           <Label>— OUR SERVICE ✈</Label>
-
-          {/* Plain Heading */}
-          <Box sx={{ mb: 5 }}>
-            <Typography
-              variant="h3"
-              sx={{
-                fontWeight: 750,
-                fontSize: { xs: 32, md: 56 },
-                color: "#0b2b33",
-                lineHeight: 1.2,
+          <Typography
+            variant="h3"
+            sx={{
+              fontWeight: 750,
+              fontSize: { xs: 28, sm: 36, md: 56 },
+              color: "#0b2b33",
+              lineHeight: 1.2,
+            }}
+          >
+            Provide Efficient Logistics
+          </Typography>
+          <Typography
+            variant="h3"
+            sx={{
+              fontWeight: 750,
+              fontSize: { xs: 28, sm: 36, md: 56 },
+              color: "#ff4c1c",
+              textTransform: "uppercase",
+              position: "relative",
+              display: "inline-block",
+            }}
+          >
+            SOLUTIONS
+            <span
+              style={{
+                position: "absolute",
+                bottom: 4,
+                left: 0,
+                width: "100%",
+                height: "4px",
+                backgroundColor: "#ff4c1c",
               }}
-            >
-              Provide Efficient Logistics
-            </Typography>
-
-            <Typography
-              variant="h3"
-              sx={{
-                fontWeight: 750,
-                fontSize: { xs: 32, md: 56 },
-                color: "#ff4c1c",
-                textTransform: "uppercase",
-                position: "relative",
-                display: "inline-block",
-              }}
-            >
-              SOLUTIONS
-              <span
-                style={{
-                  position: "absolute",
-                  bottom: 4,
-                  left: 0,
-                  width: "100%",
-                  height: "4px",
-                  backgroundColor: "#ff4c1c",
-                }}
-              />
-            </Typography>
-          </Box>
+            />
+          </Typography>
         </Box>
 
-        <CarouselWrapper>
-          <Slider {...sliderSettings}>
-            {services.map((s) => (
-              <div key={s.key}>
-                <StyledCard>
-                  {/* Image */}
-                  <ImageWrapper>
-                    <ImageBox src={s.image} alt={s.title} className="imageBox" />
-                    <ShineOverlay className="shine" />
-                  </ImageWrapper>
+        {/* Carousel */}
+        <Slider {...sliderSettings}>
+          {services.map((s) => (
+            <div key={s.key} className="slide-card">
+              <StyledCard>
+                {/* Image */}
+                <ImageWrapper>
+                  <ImageBox src={s.image} alt={s.title} className="imageBox" />
+                  <ShineOverlay className="shine" />
+                </ImageWrapper>
 
-                  {/* Content */}
-                  <ContentPanel>
-                    <Box>
-                      <CardTitle>{s.title}</CardTitle>
-                      <CardText>{s.desc}</CardText>
-                    </Box>
-
-                    <Box
-                      sx={{
-                        display: "flex",
-                        justifyContent: "space-between",
-                        alignItems: "flex-end",
-                        position: "relative",
-                      }}
-                    >
-                      <ReadMore href={`/services#${s.key}`}>Read More →</ReadMore>
-                      <Badge className="badgeIcon">{s.icon}</Badge>
-                    </Box>
-                  </ContentPanel>
-                </StyledCard>
-              </div>
-            ))}
-          </Slider>
-        </CarouselWrapper>
+                {/* Content */}
+                <ContentPanel>
+                  <Box>
+                    <CardTitle>{s.title}</CardTitle>
+                    <CardText>{s.desc}</CardText>
+                  </Box>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "flex-end",
+                      position: "relative",
+                      gap: 8,
+                    }}
+                  >
+                    <ReadMore href={`/services#${s.key}`}>Read More →</ReadMore>
+                    <Badge className="badgeIcon">{s.icon}</Badge>
+                  </Box>
+                </ContentPanel>
+              </StyledCard>
+            </div>
+          ))}
+        </Slider>
       </Container>
 
+      {/* Hover Effects + Gap Fix */}
       <style>{`
+        .services-slider .slick-track {
+          display: flex !important;
+          gap: 20px; /* ✅ gap between cards */
+        }
+
+        .services-slider .slick-slide {
+          height: inherit !important;
+        }
+
         .services-slider .slick-slide > div {
           height: 100%;
           display: flex;
           align-items: stretch;
-          padding-bottom: 20px;
         }
 
         .services-slider .slick-slide > div:hover .imageBox {
@@ -368,26 +338,6 @@ export default function Services() {
         .services-slider .slick-slide > div:hover .badgeIcon .MuiSvgIcon-root {
           color: #fff !important;
           fill: #fff !important;
-        }
-
-        @media (max-width: 1024px) and (min-width: 601px) {
-          .services-slider .slick-slide { width: 50% !important; }
-          .services-slider .slick-list, .services-slider .slick-track { display: block !important; }
-          .services-slider .slick-dots li button:before { font-size: 11px; opacity: 0.95; }
-        }
-
-        @media (max-width: 600px) {
-          .services-slider .slick-slide { display: block !important; float: none !important; width: 100% !important; }
-          .services-slider .slick-list, .services-slider .slick-track { display: block !important; }
-          .services-slider .slick-slide > div { margin: 0 auto; }
-          .services-slider .slick-dots { margin-top: 14px; }
-          .services-slider .slick-dots li { margin: 0 8px; }
-          .services-slider .slick-dots li button:before { font-size: 12px; opacity: 0.95; color: #07282b; }
-          .services-slider .MuiCardContent-root { margin-left: 12px !important; margin-right: 12px !important; padding: 16px !important; }
-        }
-
-        @media (min-width: 769px) {
-          .services-slider .slick-arrow { display: none !important; }
         }
       `}</style>
     </Section>
