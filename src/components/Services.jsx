@@ -6,6 +6,7 @@ import LocalShippingOutlinedIcon from "@mui/icons-material/LocalShippingOutlined
 import FlightTakeoffOutlinedIcon from "@mui/icons-material/FlightTakeoffOutlined";
 import DirectionsBoatOutlinedIcon from "@mui/icons-material/DirectionsBoatOutlined";
 import WarehouseOutlinedIcon from "@mui/icons-material/WarehouseOutlined";
+import { useNavigate, useLocation } from "react-router-dom";
 
 // slick carousel css
 import "slick-carousel/slick/slick.css";
@@ -213,6 +214,20 @@ const sliderSettings = {
 
 /* ================= COMPONENT ================= */
 export default function Services() {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleReadMore = (sectionId) => {
+    if (location.pathname !== "/servicesection") {
+      // Navigate to services page and pass section to scroll
+      navigate("/servicesection", { state: { scrollTo: sectionId } });
+    } else {
+      // Already on services page → smooth scroll directly
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+    }}
   return (
     <Section id="services">
       <Container maxWidth="lg">
@@ -281,7 +296,14 @@ export default function Services() {
                       gap: 8,
                     }}
                   >
-                    <ReadMore href={`/services#${s.key}`}>Read More →</ReadMore>
+                    <ReadMore
+                      as="button"
+                      onClick={() => handleReadMore(s.key)}
+                      style={{ cursor: "pointer", background: "none", border: "none" }}
+                    >
+                      Read More →
+                    </ReadMore>
+
                     <Badge className="badgeIcon">{s.icon}</Badge>
                   </Box>
                 </ContentPanel>

@@ -232,7 +232,18 @@ function Navbar() {
           {!isMobile && (
             <Button
               variant="contained"
-              onClick={() => navigate("/contact")}
+              onClick={() => {
+                if (location.pathname !== "/") {
+                  // Navigate to home page and scroll to shipment section
+                  navigate("/", { state: { scrollTo: "shipment" } });
+                } else {
+                  // Already on homepage → just smooth scroll
+                  const section = document.getElementById("shipment");
+                  if (section) {
+                    section.scrollIntoView({ behavior: "smooth" });
+                  }
+                }
+              }}
               sx={{
                 backgroundColor: "#ff4c1c",
                 "&:hover": { backgroundColor: "#e63e10" },
@@ -290,6 +301,18 @@ function Navbar() {
           <Button
             variant="contained"
             fullWidth
+            onClick={() => {
+                if (location.pathname !== "/") {
+                  // Navigate to home page and scroll to shipment section
+                  navigate("/", { state: { scrollTo: "shipment" } });
+                } else {
+                  // Already on homepage → just smooth scroll
+                  const section = document.getElementById("shipment");
+                  if (section) {
+                    section.scrollIntoView({ behavior: "smooth" });
+                  }
+                }
+              }}
             sx={{
               backgroundColor: "#ff4c1c",
               "&:hover": { backgroundColor: "#e63e10" },

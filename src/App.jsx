@@ -6,11 +6,13 @@ import About from "./components/About";
 import WhyChooseUs from "./components/WhyChooseUs";
 import Services from "./components/Services";
 import Blogs from "./components/Blogs";
+import Shipment from "./components/Shipment";
 import Footer from "./components/Footer";
 import { Box } from "@mui/material";
-
+import ScrollToTop from "./components/ScrollToTop";
 import AboutUs from "./pages/AboutUs";
 import Contact from "./pages/Contact";
+import ServicesSection from "./pages/ServicesSection";
 
 //  Wrapper to handle scroll behavior
 function ScrollToSectionWrapper({ children }) {
@@ -31,6 +33,7 @@ function ScrollToSectionWrapper({ children }) {
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <Box component="main" sx={{ scrollBehavior: "smooth" }}>
         <Navbar />
 
@@ -46,6 +49,7 @@ function App() {
                   <section id="why-choose-us"><WhyChooseUs /></section>
                   <section id="services"><Services /></section>
                   <section id="blogs"><Blogs /></section>
+                  <section id="shipment"><Shipment /></section>
                 </>
               }
             />
@@ -53,6 +57,7 @@ function App() {
             
             <Route path="/about" element={<AboutUs />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/servicesection" element={<ServicesSection />} />
           </Routes>
         </ScrollToSectionWrapper>
         <Footer />

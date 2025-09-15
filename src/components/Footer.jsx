@@ -152,10 +152,10 @@ const Footer = () => {
 
             <Box display="flex" flexDirection="column" gap={1.8}>
               {[
-                { label: "Home", id: "hero" },
-                { label: "About Us", id: "about" },
-                { label: "Services", id: "services" },
-                { label: "Contact Us", id: "why-choose-us" },
+                { label: "Home", type: "id", value: "hero" }, 
+                { label: "About Us", type: "path", value: "/about" },
+                { label: "Services", type: "path", value: "/servicesection" },
+                { label: "Contact Us", type: "path", value: "/contact" },
               ].map((item, i) => (
                 <Box key={i} display="flex" alignItems="center" gap={1}>
                   <ArrowRightAltIcon sx={{ fontSize: 20, color: "#ff4c1c" }} />
@@ -165,8 +165,7 @@ const Footer = () => {
                     color="inherit"
                     sx={{
                       fontSize: "1rem",
-                      transition:
-                        "color 0.28s ease, transform 0.18s ease",
+                      transition: "color 0.28s ease, transform 0.18s ease",
                       textAlign: "left",
                       "&:hover": {
                         color: "#ff4c1c",
@@ -174,13 +173,21 @@ const Footer = () => {
                       },
                     }}
                     onClick={() => {
-                      if (location.pathname !== "/") {
-                        navigate("/", { state: { scrollTo: item.id } });
-                      } else {
-                        const section = document.getElementById(item.id);
-                        if (section) {
-                          section.scrollIntoView({ behavior: "smooth" });
+                      if (item.type === "id") {
+                        
+                        if (location.pathname === "/") {
+                          const section = document.getElementById(item.value);
+                          if (section) {
+                            section.scrollIntoView({ behavior: "smooth" });
+                          }
+                        } else {
+                         
+                          navigate("/", { state: { scrollTo: item.value } });
                         }
+                      } else {
+                        
+                        navigate(item.value);
+                        window.scrollTo({ top: 0, behavior: "smooth" });
                       }
                     }}
                   >
@@ -189,6 +196,7 @@ const Footer = () => {
                 </Box>
               ))}
             </Box>
+
           </Grid>
 
           {/* Column 3: Services */}
