@@ -22,11 +22,14 @@ import {
   CheckCircle
 } from '@mui/icons-material';
 
-// Custom styled components
+// ---------- Custom styled components (updated connector for vertical) ----------
 const CustomStepConnector = styled(StepConnector)(({ theme }) => ({
+  // keep alternativeLabel offset for horizontal
   [`&.${stepConnectorClasses.alternativeLabel}`]: {
     top: 25,
   },
+
+  // horizontal active/completed line style
   [`&.${stepConnectorClasses.active}`]: {
     [`& .${stepConnectorClasses.line}`]: {
       backgroundColor: '#ff6b35',
@@ -39,11 +42,28 @@ const CustomStepConnector = styled(StepConnector)(({ theme }) => ({
       height: 4,
     },
   },
+
+  // default horizontal line (thin)
   [`& .${stepConnectorClasses.line}`]: {
     height: 4,
     border: 0,
     backgroundColor: 'rgba(255,255,255,0.3)',
     borderRadius: 1,
+  },
+
+  // ----- Fix for vertical orientation: make connector a thin centered vertical line -----
+  // MUI applies class "MuiStepConnector-vertical" for vertical orientation
+  '&.MuiStepConnector-vertical': {
+    // move connector close to icon center (icon width is 50 => half ~25)
+    marginLeft: 25,
+    // ensure connector line is a thin vertical bar
+    [`& .${stepConnectorClasses.line}`]: {
+      minHeight: 24,    // length of connector between steps
+      width: 4,         // thin vertical line
+      backgroundColor: 'rgba(255,255,255,0.3)',
+      borderRadius: 2,
+      marginLeft: 0,
+    },
   },
 }));
 
@@ -109,11 +129,12 @@ function CustomStepIconComponent(props) {
   const { active, completed, className, icon } = props;
   return (
     <CustomStepIcon ownerState={{ completed, active }} className={className}>
-      {completed ? <CheckCircle /> : icon}
+      {completed ? <CheckCircle sx={{ color: '#fff' }} /> : icon}
     </CustomStepIcon>
   );
 }
 
+// ---------- Main Component ----------
 const TrackShipmentSection = () => {
   const [trackingId, setTrackingId] = useState('');
   const [activeStep, setActiveStep] = useState(2);
@@ -249,17 +270,18 @@ const TrackShipmentSection = () => {
 
         {/* Progress Container */}
         <StyledStepper>
+          {/* Heading + meta (always above) */}
           <Box sx={{ mb: 3, textAlign: 'center' }}>
             <Typography variant="h6" sx={{ color: 'white', fontWeight: 600, mb: 1 }}>
               ORDER TRACKING, ORDER NO.
             </Typography>
             <Box sx={{ 
-              display: 'flex', 
-              justifyContent: 'space-between', 
-              maxWidth: 500, 
+              display: 'flex',
+              justifyContent: 'space-between',
+              maxWidth: 500,
               mx: 'auto',
               flexDirection: { xs: 'column', sm: 'row' },
-              gap: { xs: 1, sm: 0 }
+              gap: 1
             }}>
               <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.9)' }}>
                 Shipped Via : Local Courier
@@ -272,38 +294,73 @@ const TrackShipmentSection = () => {
               </Typography>
             </Box>
           </Box>
-          
-          <Stepper 
-            activeStep={activeStep} 
-            alternativeLabel
-            connector={<CustomStepConnector />}
-          >
-            {steps.map((label, index) => (
-              <Step key={label} completed={index < activeStep}>
-                <StepLabel
-                  StepIconComponent={CustomStepIconComponent}
-                  sx={{
-                    '& .MuiStepLabel-label': {
-                      color: 'white !important',
-                      fontSize: '12px',
-                      fontWeight: 500,
-                      marginTop: '8px',
-                      maxWidth: '80px',
-                      lineHeight: 1.2
-                    },
-                    '& .MuiStepLabel-label.Mui-active': {
-                      color: 'white !important',
-                    },
-                    '& .MuiStepLabel-label.Mui-completed': {
-                      color: 'white !important',
-                    },
-                  }}
-                >
-                  {label}
-                </StepLabel>
-              </Step>
-            ))}
-          </Stepper>
+
+          {/* VERTICAL STEPPER on mobile (xs) - centered under heading */}
+          <Box sx={{ display: { xs: 'flex', sm: 'none' }, justifyContent: 'center' }}>
+            <Stepper
+              activeStep={activeStep}
+              orientation="vertical"
+              connector={<CustomStepConnector />}
+              sx={{
+                width: '100%',
+                maxWidth: 360,
+                '& .MuiStep-root': { padding: '8px 0' },
+                '& .MuiStepLabel-label': {
+                  color: 'white !important',
+                  fontSize: '14px',
+                  fontWeight: 500,
+                  marginLeft: 2
+                },
+                '& .MuiStepLabel-label.Mui-completed': { color: 'white !important' },
+                '& .MuiStepLabel-label.Mui-active': { color: 'white !important' },
+                // reduce space between steps for compactness on mobile
+                '& .MuiStepConnector-root .MuiStepConnector-line': { minHeight: 20 }
+              }}
+            >
+              {steps.map((label, index) => (
+                <Step key={label} completed={index < activeStep}>
+                  <StepLabel StepIconComponent={CustomStepIconComponent}>
+                    {label}
+                  </StepLabel>
+                </Step>
+              ))}
+            </Stepper>
+          </Box>
+
+          {/* HORIZONTAL STEPPER for sm+ (desktop/tablet) - unchanged */}
+          <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+            <Stepper 
+              activeStep={activeStep} 
+              alternativeLabel
+              connector={<CustomStepConnector />}
+            >
+              {steps.map((label, index) => (
+                <Step key={label} completed={index < activeStep}>
+                  <StepLabel
+                    StepIconComponent={CustomStepIconComponent}
+                    sx={{
+                      '& .MuiStepLabel-label': {
+                        color: 'white !important',
+                        fontSize: '12px',
+                        fontWeight: 500,
+                        marginTop: '8px',
+                        maxWidth: '80px',
+                        lineHeight: 1.2
+                      },
+                      '& .MuiStepLabel-label.Mui-active': {
+                        color: 'white !important',
+                      },
+                      '& .MuiStepLabel-label.Mui-completed': {
+                        color: 'white !important',
+                      },
+                    }}
+                  >
+                    {label}
+                  </StepLabel>
+                </Step>
+              ))}
+            </Stepper>
+          </Box>
         </StyledStepper>
       </Paper>
 

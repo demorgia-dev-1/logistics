@@ -19,8 +19,6 @@ import {
   LinkedIn,
   Search,
   Menu as MenuIcon,
-  Phone,
-  Email,
 } from "@mui/icons-material";
 import { useTheme } from "@mui/material/styles";
 import { useNavigate, useLocation } from "react-router-dom";
@@ -35,10 +33,9 @@ function Navbar() {
   const navigate = useNavigate();
   const location = useLocation();
 
-
   const menuItems = ["Home", "About Us", "Services", "Blog", "Contact"];
 
-  //  Mapping tabs to section IDs
+  // Mapping tabs to section IDs
   const sectionIds = {
     Home: "hero",
     "About Us": "about",
@@ -48,84 +45,24 @@ function Navbar() {
   };
 
   const handleScroll = (item) => {
-  setActive(item);
-  const sectionId = sectionIds[item];
-  if (item === "Contact") {
-    navigate("/contact"); 
-    return;
-  }
-  if (location.pathname !== "/") {
-    // Navigate to homepage and tell it which section to scroll
-    navigate("/", { state: { scrollTo: sectionId } });
-  } else {
-    // Already on homepage → just scroll
-    const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
+    setActive(item);
+    const sectionId = sectionIds[item];
+    if (item === "Contact") {
+      navigate("/contact");
+      return;
     }
-  }
-};
-
+    if (location.pathname !== "/") {
+      navigate("/", { state: { scrollTo: sectionId } });
+    } else {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      {/* Top Bar */}
-      {!isMobile && (
-        <Box
-          sx={{
-            backgroundColor: "#0b2c3d",
-            color: "white",
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "stretch",
-            px: 4,
-            height: 50,
-            fontSize: "14px",
-            position: "relative",
-            zIndex: 1000,
-          }}
-        >
-          {/* Left Contact Info */}
-          <Box sx={{ display: "flex", gap: 3, alignItems: "center" }}>
-            <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-              <Phone sx={{ color: "#ff4c1c", fontSize: 18 }} />
-              <Typography>+123 456 789</Typography>
-            </Box>
-            <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-              <Email sx={{ color: "#ff4c1c", fontSize: 18 }} />
-              <Typography>support@demorgia.com</Typography>
-            </Box>
-          </Box>
-
-          {/* Right Orange Triangle - Social Icons */}
-          <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              gap: 1,
-              backgroundColor: "#ff4c1c",
-              clipPath: "polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%)",
-              px: 4,
-              alignSelf: "stretch",
-              height: "100%",
-            }}
-          >
-            <IconButton color="inherit" size="small">
-              <Facebook fontSize="small" />
-            </IconButton>
-            <IconButton color="inherit" size="small">
-              <Instagram fontSize="small" />
-            </IconButton>
-            <IconButton color="inherit" size="small">
-              <LinkedIn fontSize="small" />
-            </IconButton>
-            <IconButton color="inherit" size="small">
-              <Search fontSize="small" />
-            </IconButton>
-          </Box>
-        </Box>
-      )}
-
       {/* Main Navbar */}
       <AppBar
         position="fixed"
@@ -134,6 +71,7 @@ function Navbar() {
           boxShadow: "none",
           top: 0,
           zIndex: 1200,
+          overflow: "visible",
         }}
       >
         <Toolbar
@@ -141,6 +79,7 @@ function Navbar() {
             px: 0,
             justifyContent: "space-between",
             minHeight: { xs: 70, md: 100 },
+            maxHeight: { xs: 120, md: 100 }, 
           }}
         >
           {/* Orange Logo Block */}
@@ -150,11 +89,14 @@ function Navbar() {
               clipPath: "polygon(0 0, 100% 0%, 85% 100%, 0% 100%)",
               display: "flex",
               alignItems: "center",
-              px: 4,
-              py: 1.5,
-              pr: 8,
-              mr: 6,
+              px: { xs: 2, md: 4 },
+              py: { xs: 1, md: 1.5 },
+              pr: { xs: 4, md: 8 },
+              mr: { xs: 2, md: 6 },
               alignSelf: "stretch",
+              flexShrink: 0,
+              maxWidth: { xs: 260, md: 420 },
+              height: "auto",
             }}
           >
             <Box
@@ -162,41 +104,47 @@ function Navbar() {
                 display: "flex",
                 alignItems: "center",
                 gap: 1,
-                ml: -2.8,
+                ml: -1.5,
               }}
             >
-              {/*  Logo  */}
+              {/* Logo */}
               <Box
                 sx={{
-                  height: 60, // fixed container height
                   display: "flex",
                   alignItems: "center",
-                  mr: -5,
-                  ml: -3,
-                  mt: 2,
+                  mr: 0,
+                  ml: 0,
+                  mt: 0.5,
                 }}
               >
                 <Box
                   component="img"
-                  src="/public/images/navbarLogo.png"
+                  src="/images/navbarLogo.png"
                   alt="Demorgia Logo"
                   sx={{
-                    height: "320%", // logo fills container height
+                    ml: -2,
+                    maxHeight: "100%",
+                    height: { xs: 140, md: 160 }, // slightly smaller on mobile
                     width: "auto",
                     objectFit: "contain",
+                    display: "block",
                   }}
                 />
               </Box>
 
-              {/* Company Name + Tagline */}
-              <Box sx={{ display: "flex", flexDirection: "column" }}>
+              {/* Company Name */}
+              <Box sx={{ display: "flex", flexDirection: "column", ml: -1 }}>
                 <Typography
                   variant="h5"
-                  sx={{ fontWeight: "bold", color: "white", lineHeight: 1.2 }}
+                  sx={{
+                    fontWeight: "bold",
+                    color: "white",
+                    lineHeight: 1.2,
+                    fontSize: { xs: "20px", md: "24px" }, // smaller on mobile
+                  }}
                 >
                   Demorgia Aviation & Logistics
                 </Typography>
-                
               </Box>
             </Box>
           </Box>
@@ -234,10 +182,8 @@ function Navbar() {
               variant="contained"
               onClick={() => {
                 if (location.pathname !== "/") {
-                  // Navigate to home page and scroll to shipment section
                   navigate("/", { state: { scrollTo: "shipment" } });
                 } else {
-                  // Already on homepage → just smooth scroll
                   const section = document.getElementById("shipment");
                   if (section) {
                     section.scrollIntoView({ behavior: "smooth" });
@@ -259,8 +205,18 @@ function Navbar() {
 
           {/* Mobile Menu */}
           {isMobile && (
-            <IconButton color="inherit" onClick={() => setOpenDrawer(true)}>
-              <MenuIcon sx={{ color: "white" }} />
+            <IconButton
+              color="inherit"
+              onClick={() => setOpenDrawer(true)}
+              sx={{
+                ml: "auto",
+                position: "relative",
+                zIndex: 1300,
+                mr: 1,
+              }}
+              aria-label="open menu"
+            >
+              <MenuIcon sx={{ color: "white", fontSize: 28 }} />
             </IconButton>
           )}
         </Toolbar>
@@ -302,17 +258,15 @@ function Navbar() {
             variant="contained"
             fullWidth
             onClick={() => {
-                if (location.pathname !== "/") {
-                  // Navigate to home page and scroll to shipment section
-                  navigate("/", { state: { scrollTo: "shipment" } });
-                } else {
-                  // Already on homepage → just smooth scroll
-                  const section = document.getElementById("shipment");
-                  if (section) {
-                    section.scrollIntoView({ behavior: "smooth" });
-                  }
+              if (location.pathname !== "/") {
+                navigate("/", { state: { scrollTo: "shipment" } });
+              } else {
+                const section = document.getElementById("shipment");
+                if (section) {
+                  section.scrollIntoView({ behavior: "smooth" });
                 }
-              }}
+              }
+            }}
             sx={{
               backgroundColor: "#ff4c1c",
               "&:hover": { backgroundColor: "#e63e10" },

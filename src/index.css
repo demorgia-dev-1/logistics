@@ -1,0 +1,13 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;  /* white gap ka main fix */
+}
+* {
+  box-sizing: border-box;
+}
+section {
+  margin: 0;
+  padding: 0;
+}
