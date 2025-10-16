@@ -92,21 +92,33 @@ const Contact = () => {
               {/* Social Media Icons */}
               <Box sx={{ display: "flex", gap: 2 }}>
                 <IconButton
+                  href="https://www.facebook.com/"
+                  target="_blank"
+                  rel="noopener"
                   sx={{ color: "#0f172a", "&:hover": { color: "#2c68a5ff" } }}
                 >
                   <Facebook />
                 </IconButton>
                 <IconButton
+                href="https://www.instagram.com/" 
+                target="_blank" 
+                rel="noopener"
                   sx={{ color: "#0f172a", "&:hover": { color: "#2c68a5ff" } }}
                 >
                   <Instagram />
                 </IconButton>
                 <IconButton
+                href="https://twitter.com/"
+                  target="_blank"
+                  rel="noopener"
                   sx={{ color: "#0f172a", "&:hover": { color: "#2c68a5ff" } }}
                 >
                   <Twitter />
                 </IconButton>
                 <IconButton
+                href="https://www.linkedin.com/company/demorgia-consulting-services-pvt-ltd/"
+                  target="_blank"
+                  rel="noopener"
                   sx={{ color: "#0f172a", "&:hover": { color: "#2c68a5ff" } }}
                 >
                   <LinkedIn />
@@ -193,81 +205,94 @@ const Contact = () => {
 
         {/* --------- Info Cards --------- */}
         <Grid
-          container
-          spacing={3}
-          justifyContent="center"
-          alignItems={"stretch"}
-          // Ensure all cards have equal height
-          sx={{ 
-            mt: 10,
-            "& .MuiGrid-item": {
-              display: "flex",
-              flexDirection: "column",
-              minHeight: "200px" // Ensure minimum height for all grid items
-            }
+  container
+  spacing={3}
+  justifyContent="center"
+  alignItems="stretch"
+  sx={{ mt: 10 }}
+>
+  {[
+    {
+      icon: <Place sx={{ fontSize: 48, color: "#183d62ff" }} />,
+      title: "Location",
+      text: `2nd Floor, Plot No. 02, \nKhasra No. 348/02, Sahabad, Muhammadpur,Near Bansal Farm,\nNew Delhi - 110061`,
+    },
+    {
+      icon: <AccessTime sx={{ fontSize: 48, color: "#183d62ff" }} />,
+      title: "Working Hours",
+      text: "Mon - Sat, 9:00 AM - 7:00 PM",
+    },
+    {
+      icon: <Email sx={{ fontSize: 48, color: "#183d62ff" }} />,
+      title: "Email",
+      text: "support@demorgialogistics.com",
+    },
+    {
+      icon: <Phone sx={{ fontSize: 48, color: "#183d62ff" }} />,
+      title: "Phones",
+      text: "+91 1146078736",
+    },
+  ].map((item, i) => (
+    <Grid
+      key={i}
+      item
+      xs={12}
+      sm={6}
+      md={3}
+      sx={{ display: "flex", justifyContent: "center" }}
+    >
+      <Paper
+        elevation={2}
+        sx={{
+          width: { xs: "320px", sm: "320px", md: "320px" }, // fixed equal width
+          height: "270px", // fixed equal height
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          textAlign: "center",
+          p: 3,
+          borderRadius: 3,
+          boxShadow: "0px 6px 20px rgba(0,0,0,0.08)",
+        }}
+      >
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            height: "100%",
           }}
         >
-          {[
-            {
-              icon: <Place sx={{ fontSize: 48, color: "#183d62ff" }} />,
-              title: "Location",
-              text: "Sector 62, Noida, Delhi NCR, India",
-            },
-            {
-              icon: <AccessTime sx={{ fontSize: 48, color: "#183d62ff" }} />,
-              title: "Working Hours",
-              text: "Mon - Sat, 9:00 AM - 7:00 PM",
-            },
-            {
-              icon: <Email sx={{ fontSize: 48, color: "#183d62ff" }} />,
-              title: "Email",
-              text: "support@demorgia.com",
-            },
-            {
-              icon: <Phone sx={{ fontSize: 48, color: "#183d62ff" }} />,
-              title: "Phones",
-              text: "+91 98765 43210",
-            },
-          ].map((item, i) => (
-            <Grid key={i} item xs={12} sm={6} md={3} sx={{ display: "flex" }}>
-              <Paper
-                sx={{
-                  textAlign: "center",
-                  p: 5,
-                  borderRadius: 3,
-                  boxShadow: "0px 6px 20px rgba(0,0,0,0.1)",
-                  width: "100%", // Ensure full width
-                  height: "100%", 
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "space-between", // Distribute content evenly
-                  alignItems: "center",
-                  minHeight: "200px", // Set minimum height
-                }}
-              >
-                {item.icon}
-                <Typography
-                  variant="h6"
-                  sx={{ fontWeight: 700, mt: 2, mb: 1, color: "#0f172a" }}
-                >
-                  {item.title}
-                </Typography>
-                <Typography
-                  variant="body1"
-                  sx={{ color: "#475569", lineHeight: 1.6 }}
-                >
-                  {item.text}
-                </Typography>
-              </Paper>
-            </Grid>
-          ))}
-        </Grid>
+          {item.icon}
+          <Typography
+            variant="h6"
+            sx={{ fontWeight: 700, mt: 2, mb: 1, color: "#0f172a" }}
+          >
+            {item.title}
+          </Typography>
+          <Typography
+            variant="body1"
+            sx={{
+              color: "#475569",
+              lineHeight: 1.6,
+              fontSize: "0.95rem",
+              whiteSpace: "pre-line", // Enables line breaks in address
+            }}
+          >
+            {item.text}
+          </Typography>
+        </Box>
+      </Paper>
+    </Grid>
+  ))}
+</Grid>
 
         {/* --------- Google Map --------- */}
         <Box sx={{ mt: 6 }}>
           <iframe
             title="Demorgia Location"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3510.9403653489346!2d77.36387427523044!3d28.62721128488662!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce5a7bb5f6d9b%3A0x2d8b2f1d40b9f19e!2sSector%2062%2C%20Noida%2C%20Uttar%20Pradesh%20201301!5e0!3m2!1sen!2sin!4v1694359483452!5m2!1sen!2sin"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14011.927099745345!2d77.08136625!3d28.52859465!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d1f8c4e2d2b5b%3A0x123456789abcdef!2s2nd%20Floor%2C%20Plot%20No.%2002%2C%20Khasra%20No.%20348%2F02%2C%20Sahabad%2C%20Muhammadpur%2C%20Near%20Bansal%20Farm%2C%20New%20Delhi%20-%20110061!5e0!3m2!1sen!2sin!4v1699955550000!5m2!1sen!2sin"
             width="100%"
             height="400"
             style={{ border: 0 }}

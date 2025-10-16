@@ -141,7 +141,7 @@ const Blogs = () => {
                   <Box className="shine" />
 
                   {/* Date Badge */}
-                  <Box
+                  {/* <Box
                     sx={{
                       mb: -1,
                       position: "absolute",
@@ -158,7 +158,7 @@ const Blogs = () => {
                     }}
                   >
                     {blog.date}
-                  </Box>
+                  </Box> */}
                 </Box>
 
                 <CardContent sx={{ pt: 4 }}>
@@ -170,9 +170,9 @@ const Blogs = () => {
                     sx={{ mb: 1, fontSize: "14px", color: "#555" }}
                   >
                     <Person sx={{ fontSize: "18px", color: "#183d62ff" }} />
-                    <Typography variant="body2">{blog.author}</Typography>
+                    {/* <Typography variant="body2">{blog.author}</Typography> */}
                     <Comment sx={{ fontSize: "18px", color: "#183d62ff" }} />
-                    <Typography variant="body2">{blog.comments}</Typography>
+                    {/* <Typography variant="body2">{blog.comments}</Typography> */}
                   </Stack>
 
                   {/* Title */}

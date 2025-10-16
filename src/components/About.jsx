@@ -237,7 +237,7 @@ function AboutSection() {
               }}
             />
 
-            <Box
+            {/* <Box
               sx={{
                 position: "absolute",
                 bottom: { xs: "-20%", md: "-10%" },
@@ -257,7 +257,7 @@ function AboutSection() {
               }}
             >
               Welcome To Our Company
-            </Box>
+            </Box> */}
           </Box>
         </Grid>
       </Grid>

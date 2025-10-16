@@ -280,34 +280,42 @@ const Footer = () => {
 
             <Box sx={{ display: "flex", alignItems: "center", gap: 1.5, mb: 2 }}>
               <EmailIcon sx={{ fontSize: 22, color: "#2c68a5ff" }} />
-              <Typography variant="body1">support@demorgia.com</Typography>
+              <Typography variant="body1">support@demorgialogistics.com</Typography>
             </Box>
 
             <Box>
               <IconButton
                 aria-label="linkedin"
-                href="#"
+                href="https://www.linkedin.com/company/demorgia-consulting-services-pvt-ltd/"
+                target="_blank"
+                rel="noopener"
                 sx={{ color: "#ffffff", mr: 1, transition: "color 0.28s ease", "&:hover": { color: "#2c68a5ff" } }}
               >
                 <LinkedInIcon />
               </IconButton>
               <IconButton
                 aria-label="whatsapp"
-                href="#"
+                href="https://wa.me/911146078736" // WhatsApp direct chat link
+                target="_blank"
+                rel="noopener"
                 sx={{ color: "#ffffff", mr: 1, transition: "color 0.28s ease", "&:hover": { color: "#2c68a5ff" } }}
               >
                 <WhatsAppIcon />
               </IconButton>
               <IconButton
                 aria-label="twitter"
-                href="#"
+                href="https://twitter.com/"
+                target="_blank"
+                rel="noopener"
                 sx={{ color: "#ffffff", mr: 1, transition: "color 0.28s ease", "&:hover": { color: "#2c68a5ff" } }}
               >
                 <TwitterIcon />
               </IconButton>
               <IconButton
                 aria-label="facebook"
-                href="#"
+                href="https://www.facebook.com/"
+                target="_blank"
+                 rel="noopener"
                 sx={{ color: "#ffffff", transition: "color 0.28s ease", "&:hover": { color: "#2c68a5ff" } }}
               >
                 <FacebookIcon />
