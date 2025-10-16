@@ -19,7 +19,7 @@ import { useNavigate } from "react-router-dom";
 // Styled section (full width)
 const StyledSection = styled("section")(({ theme }) => ({
   width: "100%",
-  backgroundColor: "#1e293b",
+  backgroundColor: "#183d62ff",
   backgroundImage: "url(/images/why-choose-v1-pattern.png)",
   backgroundSize: "90% auto",
   backgroundPosition: "right center",
@@ -69,13 +69,13 @@ const StyledListItem = styled(ListItem)({
 });
 
 const StyledListItemIcon = styled(ListItemIcon)({
-  color: "#ff4c1c",
+  color: "#2c68a5ff",
   minWidth: "32px",
   marginTop: 6,
 });
 
 const ContactButton = styled(Button)({
-  backgroundColor: "#ff4c1c",
+  backgroundColor: "#2c68a5ff",
   color: "white",
   padding: "10px 28px",
   borderRadius: 10,
@@ -83,19 +83,19 @@ const ContactButton = styled(Button)({
   fontWeight: 600,
   marginTop: 12,
   textTransform: "none",
-  "&:hover": { backgroundColor: "#ea580c", transform: "translateY(-2px)" },
+  "&:hover": { backgroundColor: "#183d62ff", transform: "translateY(-2px)" },
   transition: "all 0.3s ease",
 });
 
 const FormButton = styled(Button)({
-  backgroundColor: "#ff4c1c",
+  backgroundColor: "#2c68a5ff",
   color: "#fff",
   padding: "12px 24px",
   fontWeight: 600,
   borderRadius: 8,
   textTransform: "none",
   fontSize: 16,
-  "&:hover": { backgroundColor: "#ea580c", transform: "translateY(-2px)" },
+  "&:hover": { backgroundColor: "#183d62ff", transform: "translateY(-2px)" },
   transition: "all 0.3s ease",
 });
 
@@ -126,14 +126,14 @@ const WhyChooseUs = () => {
                   sx={{
                     fontSize: "0.95rem",
                     fontWeight: "bold",
-                    color: "#ff4c1c",
+                    color: "#2c68a5ff",
                     textTransform: "uppercase",
                     letterSpacing: "1px",
                   }}
                 >
                   Why Choose Us
                 </Typography>
-                <Typography sx={{ color: "#ff4c1c" }}>✈</Typography>
+                <Typography sx={{ color: "#2c68a5ff" }}>✈</Typography>
               </Stack>
 
               {/* Title: Logistics + SOLUTIONS */}
@@ -148,7 +148,7 @@ const WhyChooseUs = () => {
                   variant="h3"
                   sx={{
                     fontWeight: 700,
-                    color: "#ff4c1c",
+                    color: "#2c68a5ff",
                     textTransform: "uppercase",
                     lineHeight: 1.2,
                   }}

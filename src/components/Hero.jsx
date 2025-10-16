@@ -8,21 +8,14 @@ function Hero() {
     <Box
       id="hero"
       sx={{
-        // height: { xs: "calc(100vh - 70px)", md: "100vh" },
-        // pt: { xs: "64px", md: "80px" },
-        // position: "relative",
-        // color: "white",
-        // backgroundColor: "#0b1c2c",
-        // overflow: "hidden",
-        //boxSizing: "border-box",
         minHeight: "100vh",
         position: "relative",
         color: "white",
         backgroundColor: "#0b1c2c",
         overflow: "hidden",
-
-        // 👇 Fix for navbar overlap
-        mt: { xs: "120px", md: "0px" }, 
+        // Fix for navbar overlap - account for navbar height
+        mt: { xs: "120px", md: "100px" }, // Add top margin to push content below navbar
+        //border: "5px solid red", // TEMPORARY: This should be visible if changes are working
       }}
     >
       {/* Background Map Image */}
@@ -105,7 +98,7 @@ function Hero() {
                 variant="h3"
                 fontWeight="bold"
                 sx={{
-                  color: "#ff4c1c",
+                  color: "#2c68a5ff",
                   mb: 1,
                   fontSize: { xs: "3.4rem", md: "3.5rem" }, 
                   lineHeight: 1.05,
@@ -147,7 +140,7 @@ function Hero() {
               sx={{
                 width: "3px",
                 height: "200px",
-                backgroundColor: "#ff4c1c",
+                backgroundColor: "#17437aff",
               }}
             />
           </Grid>
@@ -196,8 +189,8 @@ function Hero() {
               <Button
                 variant="contained"
                 sx={{
-                  backgroundColor: "#ff4c1c",
-                  "&:hover": { backgroundColor: "#e63e10" },
+                  backgroundColor: "#183d62ff",
+                  "&:hover": { backgroundColor: "#2c68a5ff" },
                   px: 4,
                   py: 1.5,
                   fontWeight: "bold",

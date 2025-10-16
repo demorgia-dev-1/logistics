@@ -32,13 +32,13 @@ const CustomStepConnector = styled(StepConnector)(({ theme }) => ({
   // horizontal active/completed line style
   [`&.${stepConnectorClasses.active}`]: {
     [`& .${stepConnectorClasses.line}`]: {
-      backgroundColor: '#ff6b35',
+      backgroundColor: '#183d62ff',
       height: 4,
     },
   },
   [`&.${stepConnectorClasses.completed}`]: {
     [`& .${stepConnectorClasses.line}`]: {
-      backgroundColor: '#ff6b35',
+      backgroundColor: '#183d62ff',
       height: 4,
     },
   },
@@ -69,10 +69,10 @@ const CustomStepConnector = styled(StepConnector)(({ theme }) => ({
 
 const CustomStepIcon = styled('div')(({ theme, ownerState }) => ({
   backgroundColor: ownerState.completed 
-    ? '#ff6b35' 
+    ? '#17437aff' 
     : ownerState.active 
-    ? '#ff6b35' 
-    : '#fca5a5',
+    ? '#35609fff' 
+    : '#3460a3ff',
   zIndex: 1,
   color: '#fff',
   width: 50,
@@ -93,7 +93,7 @@ const StyledStepper = styled(Box)(({ theme }) => ({
 }));
 
 const TrackButton = styled(Button)(({ theme }) => ({
-  background: 'linear-gradient(135deg, #ff6b35, #ff8a50)',
+  background: 'linear-gradient(135deg, #2c68a5ff, #2c68a5ff)',
   color: 'white',
   padding: '15px 30px',
   fontSize: '16px',
@@ -101,7 +101,7 @@ const TrackButton = styled(Button)(({ theme }) => ({
   borderRadius: '8px',
   textTransform: 'none',
   '&:hover': {
-    background: 'linear-gradient(135deg, #e55a2b, #e5743d)',
+    background: 'linear-gradient(135deg, #183d62ff, #183d62ff)',
     transform: 'translateY(-2px)',
   },
   transition: 'transform 0.2s ease'
@@ -121,7 +121,7 @@ const FAQAccordion = styled(Accordion)(({ theme }) => ({
     }
   },
   '& .MuiAccordionSummary-expandIconWrapper': {
-    color: '#ff6b35',
+    color: '#183d62ff',
   }
 }));
 
@@ -186,7 +186,7 @@ const TrackShipmentSection = () => {
       <Box textAlign="center" mb={8}>
         <Typography
           variant="subtitle1"
-          sx={{ color: "#f85a40", fontWeight: 600, letterSpacing: 1 }}
+          sx={{ color: "#183d62ff", fontWeight: 600, letterSpacing: 1 }}
         >
           — TRACK YOUR ORDERS ✈
         </Typography>
@@ -216,7 +216,7 @@ const TrackShipmentSection = () => {
             sx={{
               fontWeight: 750,
               fontSize: { xs: 28, sm: 36, md: 56 },
-              color: "#f85a40",
+              color: "#183d62ff",
               textTransform: "uppercase",
               position: "relative",
               display: "inline-block",
@@ -230,7 +230,7 @@ const TrackShipmentSection = () => {
                 left: 0,
                 width: "100%",
                 height: "4px",
-                backgroundColor: "#f85a40",
+                backgroundColor: "#183d62ff",
               }}
             />
           </Typography>
@@ -252,10 +252,10 @@ const TrackShipmentSection = () => {
                 padding: '4px 14px',
                 fontSize: '16px',
                 '&:hover .MuiOutlinedInput-notchedOutline': {
-                  borderColor: '#ff6b35',
+                  borderColor: '#183d62ff',
                 },
                 '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                  borderColor: '#ff6b35',
+                  borderColor: '#183d62ff',
                 }
               },
               '& .MuiOutlinedInput-input': {
@@ -372,7 +372,7 @@ const TrackShipmentSection = () => {
             <Box textAlign="left" mb={6}>
               <Typography
                 variant="subtitle1"
-                sx={{ color: "#f85a40", fontWeight: 600, letterSpacing: 1 }}
+                sx={{ color: "#183d62ff", fontWeight: 600, letterSpacing: 1 }}
               >
                 — COMPANY'S FAQ ✈
               </Typography>
@@ -391,7 +391,7 @@ const TrackShipmentSection = () => {
                   <Box
                     component="span"
                     sx={{
-                      color: "#f85a40",
+                      color: "#183d62ff",
                       textTransform: "uppercase",
                       position: "relative",
                       display: "inline-block",
@@ -405,7 +405,7 @@ const TrackShipmentSection = () => {
                         left: 0,
                         width: "100%",
                         height: "4px",
-                        backgroundColor: "#f85a40",
+                        backgroundColor: "#183d62ff",
                       }}
                     />
                   </Box>

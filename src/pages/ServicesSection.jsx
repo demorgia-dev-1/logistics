@@ -128,7 +128,7 @@ function ServicesSection() {
   return (
     <>
       {/* ✅ Original Section (unchanged) */}
-      <Box sx={{ py: 10, bgcolor: "#f9f9f9" }}>
+      <Box sx={{ py: 10, bgcolor: "#f9f9f9", pt: { xs: 20, md: 22 } }}>
         <Container maxWidth="xl">
           <Grid
             container
@@ -256,7 +256,7 @@ function ServicesSection() {
                       sx={{
                         fontWeight: "bold",
                         mb: 2,
-                        color: "#ff4c1c",
+                        color: "#183d62ff",
                       }}
                     >
                       {activeService.title}
@@ -342,27 +342,27 @@ function ServicesSection() {
           <Grid container spacing={4} sx={{ pl: { xs: 2, md: 6, mr: 6, justifyContent: "center"} }}>
             {[
               {
-                icon: <PrecisionManufacturing sx={{ color: "#ff4c1c" }} />,
+                icon: <PrecisionManufacturing sx={{ color: "#183d62ff" }} />,
                 text: "Manufacturing & Engineering – Import/export of raw materials, equipment, and machinery",
               },
               {
-                icon: <Medication sx={{ color: "#ff4c1c" }} />,
+                icon: <Medication sx={{ color: "#183d62ff" }} />,
                 text: "Pharmaceuticals & Healthcare – Temperature-controlled shipping & regulatory compliance",
               },
               {
-                icon: <ShoppingCart sx={{ color: "#ff4c1c" }} />,
+                icon: <ShoppingCart sx={{ color: "#183d62ff" }} />,
                 text: "E-commerce & Retail – Faster clearances, warehousing, and last-mile delivery",
               },
               {
-                icon: <DirectionsCar sx={{ color: "#ff4c1c" }} />,
+                icon: <DirectionsCar sx={{ color: "#183d62ff" }} />,
                 text: "Automotive & Spare Parts – JIT logistics & oversized shipments",
               },
               {
-                icon: <Devices sx={{ color: "#ff4c1c" }} />,
+                icon: <Devices sx={{ color: "#183d62ff" }} />,
                 text: "Electronics & High-Value Goods – Secure, bonded warehousing & customs valuation",
               },
               {
-                icon: <LocalDining sx={{ color: "#ff4c1c" }} />,
+                icon: <LocalDining sx={{ color: "#183d62ff" }} />,
                 text: "Perishables & Food Industry – Cold chain logistics & priority clearance",
               },
             ].map((item, idx) => (
@@ -382,7 +382,7 @@ function ServicesSection() {
             sx={{
               mt: 6,
               textAlign: "center",
-              color: "#ff4c1c",
+              color: "#183d62ff",
               fontWeight: "600",
             }}
           >

@@ -67,7 +67,9 @@ function Navbar() {
       <AppBar
         position="fixed"
         sx={{
-          backgroundColor: "#0f3a4c",
+          //backgroundColor: "#0f3a4c",
+          backgroundImage:
+            "linear-gradient(90deg, #3460a3ff 0%, #35609fff 40%, #17437aff 100%)",
           boxShadow: "none",
           top: 0,
           zIndex: 1200,
@@ -82,10 +84,10 @@ function Navbar() {
             maxHeight: { xs: 120, md: 100 }, 
           }}
         >
-          {/* Orange Logo Block */}
+          {/* Darker Logo Block */}
           <Box
             sx={{
-              backgroundColor: "#ff4c1c",
+              backgroundColor: "#183d62ff",
               clipPath: "polygon(0 0, 100% 0%, 85% 100%, 0% 100%)",
               display: "flex",
               alignItems: "center",
@@ -119,12 +121,12 @@ function Navbar() {
               >
                 <Box
                   component="img"
-                  src="/images/navbarLogo.png"
+                  src="/images/demorgia (2).png"
                   alt="Demorgia Logo"
                   sx={{
                     ml: -2,
                     maxHeight: "100%",
-                    height: { xs: 140, md: 160 }, // slightly smaller on mobile
+                    height: { xs: 140, md: 180 }, // slightly smaller on mobile
                     width: "auto",
                     objectFit: "contain",
                     display: "block",
@@ -140,7 +142,7 @@ function Navbar() {
                     fontWeight: "bold",
                     color: "white",
                     lineHeight: 1.2,
-                    fontSize: { xs: "20px", md: "24px" }, // smaller on mobile
+                    fontSize: { xs: "20px", md: "23px" }, // smaller on mobile
                   }}
                 >
                   Demorgia Aviation & Logistics
@@ -164,7 +166,7 @@ function Navbar() {
                   key={item}
                   onClick={() => handleScroll(item)}
                   sx={{
-                    color: active === item ? "#ff4c1c" : "white",
+                    color: active === item ? "#2a235bff" : "white",
                     fontWeight: active === item ? "bold" : "normal",
                     fontSize: "15px",
                     letterSpacing: "0.5px",
@@ -191,8 +193,8 @@ function Navbar() {
                 }
               }}
               sx={{
-                backgroundColor: "#ff4c1c",
-                "&:hover": { backgroundColor: "#e63e10" },
+                backgroundColor: "#183d62ff",
+                "&:hover": { backgroundColor: "#2c68a5ff" },
                 fontWeight: "bold",
                 fontSize: "14px",
                 px: 3,
@@ -246,7 +248,7 @@ function Navbar() {
                 <ListItemText
                   primary={item}
                   primaryTypographyProps={{
-                    color: active === item ? "#ff4c1c" : "black",
+                    color: active === item ? "#2a235bff" : "black",
                     fontWeight: active === item ? "bold" : "normal",
                   }}
                 />
@@ -268,8 +270,8 @@ function Navbar() {
               }
             }}
             sx={{
-              backgroundColor: "#ff4c1c",
-              "&:hover": { backgroundColor: "#e63e10" },
+              backgroundColor: "#183d62ff",
+              "&:hover": { backgroundColor: "#2c68a5ff" },
             }}
           >
             Track Order

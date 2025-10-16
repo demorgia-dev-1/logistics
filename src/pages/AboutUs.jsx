@@ -10,7 +10,12 @@ import AssignmentTurnedInIcon from "@mui/icons-material/AssignmentTurnedIn"; // 
 
 export default function AboutUs() {
   return (
-    <Box sx={{ backgroundColor: "#fff", py: { xs: 6, md: 10 } }}>
+    <Box sx={{ 
+      backgroundColor: "#fff", 
+      py: { xs: 6, md: 10 },
+      // Fix for navbar overlap - account for navbar height
+      pt: { xs: "140px", md: "120px" }, // Add top padding to push content below navbar
+    }}>
       <Container maxWidth="xl">
         {/* ---------- Who We Are Section ---------- */}
         <Grid container spacing={6} alignItems="center" justifyContent={"center"}>
@@ -104,7 +109,7 @@ export default function AboutUs() {
                 maxWidth: 480,
                 mx: "auto",
                 textAlign: "center",
-                borderLeft: "6px solid #ff5722",
+                borderLeft: "6px solid #183d62ff",
                 p: { xs: 4, md: 5 },
                 boxShadow: "0 8px 24px rgba(0,0,0,0.12)",
                 transition: "transform 0.3s ease, box-shadow 0.3s ease",
@@ -121,13 +126,13 @@ export default function AboutUs() {
                 className="flipIcon"
                 sx={{
                   fontSize: 64,
-                  color: "#ff5722",
+                  color: "#2c68a5ff",
                   mb: 2,
                   transition: "transform 0.6s ease",
                   transformStyle: "preserve-3d",
                 }}
               >
-                <VisibilityIcon sx={{ fontSize: 64, color: "#ff5722" }} />
+                <VisibilityIcon sx={{ fontSize: 64, color: "#2c68a5ff" }} />
               </Box>
               <Typography
                 variant="h5"
@@ -157,7 +162,7 @@ export default function AboutUs() {
                 maxWidth: 480,
                 mx: "auto",
                 textAlign: "center",
-                borderLeft: "6px solid #ff5722",
+                borderLeft: "6px solid #183d62ff",
                 p: { xs: 4, md: 5 },
                 boxShadow: "0 8px 24px rgba(0,0,0,0.12)",
                 transition: "transform 0.3s ease, box-shadow 0.3s ease",
@@ -174,13 +179,13 @@ export default function AboutUs() {
                 className="flipIcon"
                 sx={{
                   fontSize: 64,
-                  color: "#ff5722",
+                  color: "#183d62ff",
                   mb: 2,
                   transition: "transform 0.6s ease",
                   transformStyle: "preserve-3d",
                 }}
               >
-                <FlagIcon sx={{ fontSize: 64, color: "#ff5722" }} />
+                <FlagIcon sx={{ fontSize: 64, color: "#2c68a5ff" }} />
               </Box>
               <Typography
                 variant="h5"
@@ -254,7 +259,7 @@ export default function AboutUs() {
                       width: 70,
                       height: 70,
                       borderRadius: "50%",
-                      backgroundColor: "#ff5722",
+                      backgroundColor: "#183d62ff",
                       color: "#fff",
                       display: "flex",
                       alignItems: "center",
@@ -373,14 +378,14 @@ export default function AboutUs() {
                   p: 4,
                   borderRadius: 3,
                   backgroundColor: "#fff",
-                  border: "2px solid #ff5722",
+                  border: "2px solid #183d62ff",
                   boxShadow: "0 6px 20px rgba(0,0,0,0.1)",
                 }}
               >
                 <Typography
                   variant="h5"
                   fontWeight="bold"
-                  sx={{ color: "#ff5722", mb: 2 }}
+                  sx={{ color: "#183d62ff", mb: 2 }}
                 >
                   Air Freight
                 </Typography>
@@ -397,14 +402,14 @@ export default function AboutUs() {
                   p: 4,
                   borderRadius: 3,
                   backgroundColor: "#fff",
-                  border: "2px solid #ff5722",
+                  border: "2px solid #183d62ff",
                   boxShadow: "0 6px 20px rgba(0,0,0,0.1)",
                 }}
               >
                 <Typography
                   variant="h5"
                   fontWeight="bold"
-                  sx={{ color: "#ff5722", mb: 2 }}
+                  sx={{ color: "#183d62ff", mb: 2 }}
                 >
                   Sea Freight
                 </Typography>
@@ -421,14 +426,14 @@ export default function AboutUs() {
                   p: 4,
                   borderRadius: 3,
                   backgroundColor: "#fff",
-                  border: "2px solid #ff5722",
+                  border: "2px solid #183d62ff",
                   boxShadow: "0 6px 20px rgba(0,0,0,0.1)",
                 }}
               >
                 <Typography
                   variant="h5"
                   fontWeight="bold"
-                  sx={{ color: "#ff5722", mb: 2 }}
+                  sx={{ color: "#183d62ff", mb: 2 }}
                 >
                   Inland Transport
                 </Typography>
@@ -554,7 +559,7 @@ export default function AboutUs() {
               width: 22,
               height: 22,
               borderRadius: "50%",
-              backgroundColor: "#ff5722",
+              backgroundColor: "#183d62ff",
               color: "#fff",
               fontSize: 14,
               fontWeight: "bold",

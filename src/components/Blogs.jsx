@@ -46,7 +46,7 @@ const Blogs = () => {
         <Box textAlign="center" mb={6}>
           <Typography
             variant="subtitle1"
-            sx={{ color: "#f85a40", fontWeight: 600, letterSpacing: 1 }}
+            sx={{ color: "#183d62ff", fontWeight: 600, letterSpacing: 1 }}
           >
             — OUR BLOGS ✈
           </Typography>
@@ -70,7 +70,7 @@ const Blogs = () => {
               sx={{
                 fontWeight: 750,
                 fontSize: { xs: 28, sm: 36, md: 56 },
-                color: "#f85a40",
+                color: "#183d62ff",
                 textTransform: "uppercase",
                 position: "relative",
                 display: "inline-block",
@@ -84,7 +84,7 @@ const Blogs = () => {
                   left: 0,
                   width: "100%",
                   height: "4px",
-                  backgroundColor: "#f85a40",
+                  backgroundColor: "#183d62ff",
                 }}
               />
             </Typography>
@@ -147,7 +147,7 @@ const Blogs = () => {
                       position: "absolute",
                       bottom: 12,
                       left: 16,
-                      backgroundColor: "#f85a40",
+                      backgroundColor: "#183d62ff",
                       color: "#fff",
                       px: 2,
                       py: 0.5,
@@ -169,9 +169,9 @@ const Blogs = () => {
                     alignItems="center"
                     sx={{ mb: 1, fontSize: "14px", color: "#555" }}
                   >
-                    <Person sx={{ fontSize: "18px", color: "#f85a40" }} />
+                    <Person sx={{ fontSize: "18px", color: "#183d62ff" }} />
                     <Typography variant="body2">{blog.author}</Typography>
-                    <Comment sx={{ fontSize: "18px", color: "#f85a40" }} />
+                    <Comment sx={{ fontSize: "18px", color: "#183d62ff" }} />
                     <Typography variant="body2">{blog.comments}</Typography>
                   </Stack>
 
@@ -195,7 +195,7 @@ const Blogs = () => {
                   <Button
                     variant="contained"
                     sx={{
-                      backgroundColor: "#f85a40",
+                      backgroundColor: "#183d62ff",
                       borderRadius: 2,
                       px: 3,
                       py: 1,

@@ -36,7 +36,7 @@ const Footer = () => {
       component="footer"
       sx={{
         width: "100%",
-        backgroundColor: "#0f3a4c",
+        backgroundColor: "#183d62ff",
         color: "#ffffff",
         position: "relative",
         overflow: "hidden",
@@ -87,7 +87,7 @@ const Footer = () => {
               >
                 <Box
                   component="img"
-                  src="/public/images/demo4.png"
+                  src="/public/images/demorgia (2).png"
                   alt="Company Logo"
                   sx={{
                     height: "290%",
@@ -126,7 +126,7 @@ const Footer = () => {
               variant="subtitle1"
               sx={{
                 fontStyle: "italic",
-                color: "#ff4c1c",
+                color: "#2c68a5ff",
                 fontWeight: 600,
               }}
             >
@@ -147,7 +147,7 @@ const Footer = () => {
               }}
             >
               Quick Links
-              <FlightTakeoffIcon sx={{ fontSize: 22, color: "#ff4c1c" }} />
+              <FlightTakeoffIcon sx={{ fontSize: 22, color: "#2c68a5ff" }} />
             </Typography>
 
             <Box display="flex" flexDirection="column" gap={1.8}>
@@ -158,7 +158,7 @@ const Footer = () => {
                 { label: "Contact Us", type: "path", value: "/contact" },
               ].map((item, i) => (
                 <Box key={i} display="flex" alignItems="center" gap={1}>
-                  <ArrowRightAltIcon sx={{ fontSize: 20, color: "#ff4c1c" }} />
+                  <ArrowRightAltIcon sx={{ fontSize: 20, color: "#2c68a5ff" }} />
                   <Link
                     component="button"
                     underline="none"
@@ -168,7 +168,7 @@ const Footer = () => {
                       transition: "color 0.28s ease, transform 0.18s ease",
                       textAlign: "left",
                       "&:hover": {
-                        color: "#ff4c1c",
+                        color: "#2c68a5ff",
                         transform: "translateX(3px)",
                       },
                     }}
@@ -212,37 +212,37 @@ const Footer = () => {
               }}
             >
               Services
-              <FlightTakeoffIcon sx={{ fontSize: 22, color: "#ff4c1c" }} />
+              <FlightTakeoffIcon sx={{ fontSize: 22, color: "#2c68a5ff" }} />
             </Typography>
 
             <Box display="flex" flexDirection="column" gap={1.8}>
               <Box display="flex" alignItems="center" gap={1.2}>
-                <AssignmentIcon sx={{ fontSize: 20, color: "#ff4c1c" }} />
+                <AssignmentIcon sx={{ fontSize: 20, color: "#2c68a5ff" }} />
                 <Typography variant="body1">Customs Clearing</Typography>
               </Box>
 
               <Box display="flex" alignItems="center" gap={1.2}>
-                <LocalShippingIcon sx={{ fontSize: 20, color: "#ff4c1c" }} />
+                <LocalShippingIcon sx={{ fontSize: 20, color: "#2c68a5ff" }} />
                 <Typography variant="body1">Freight Forwarding</Typography>
               </Box>
 
               <Box display="flex" alignItems="center" gap={1.2}>
-                <InventoryIcon sx={{ fontSize: 20, color: "#ff4c1c" }} />
+                <InventoryIcon sx={{ fontSize: 20, color: "#2c68a5ff" }} />
                 <Typography variant="body1">Warehousing</Typography>
               </Box>
 
               <Box display="flex" alignItems="center" gap={1.2}>
-                <BusinessCenterIcon sx={{ fontSize: 20, color: "#ff4c1c" }} />
+                <BusinessCenterIcon sx={{ fontSize: 20, color: "#2c68a5ff" }} />
                 <Typography variant="body1">SVB Consulting</Typography>
               </Box>
 
               <Box display="flex" alignItems="center" gap={1.2}>
-                <GavelIcon sx={{ fontSize: 20, color: "#ff4c1c" }} />
+                <GavelIcon sx={{ fontSize: 20, color: "#2c68a5ff" }} />
                 <Typography variant="body1">Compliance</Typography>
               </Box>
 
               <Box display="flex" alignItems="center" gap={1.2}>
-                <AddCircleOutlineIcon sx={{ fontSize: 20, color: "#ff4c1c" }} />
+                <AddCircleOutlineIcon sx={{ fontSize: 20, color: "#2c68a5ff" }} />
                 <Typography variant="body1">Value Added Services</Typography>
               </Box>
             </Box>
@@ -262,11 +262,11 @@ const Footer = () => {
               }}
             >
               Contact Us
-              <FlightTakeoffIcon sx={{ fontSize: 22, color: "#ff4c1c" }} />
+              <FlightTakeoffIcon sx={{ fontSize: 22, color: "#2c68a5ff" }} />
             </Typography>
 
             <Box sx={{ display: "flex", alignItems: "center", gap: 1.5, mb: 1.5 }}>
-              <PlaceIcon sx={{ fontSize: 22, color: "#ff4c1c", mt: -9 }} />
+              <PlaceIcon sx={{ fontSize: 22, color: "#2c68a5ff", mt: -9 }} />
               <Typography variant="body1" sx={{mb: 2,
                 lineHeight: 1.8,
                 maxWidth: { xs: "100%", md: 280 },}}>2nd Floor Plot No. 02 Khasra No. 348/02, 
@@ -274,12 +274,12 @@ const Footer = () => {
             </Box>
 
             <Box sx={{ display: "flex", alignItems: "center", gap: 1.5, mb: 1.5 }}>
-              <PhoneIcon sx={{ fontSize: 22, color: "#ff4c1c" }} />
+              <PhoneIcon sx={{ fontSize: 22, color: "#2c68a5ff" }} />
               <Typography variant="body1">+91 1146078736</Typography>
             </Box>
 
             <Box sx={{ display: "flex", alignItems: "center", gap: 1.5, mb: 2 }}>
-              <EmailIcon sx={{ fontSize: 22, color: "#ff4c1c" }} />
+              <EmailIcon sx={{ fontSize: 22, color: "#2c68a5ff" }} />
               <Typography variant="body1">support@demorgia.com</Typography>
             </Box>
 
@@ -287,28 +287,28 @@ const Footer = () => {
               <IconButton
                 aria-label="linkedin"
                 href="#"
-                sx={{ color: "#ffffff", mr: 1, transition: "color 0.28s ease", "&:hover": { color: "#ff4c1c" } }}
+                sx={{ color: "#ffffff", mr: 1, transition: "color 0.28s ease", "&:hover": { color: "#2c68a5ff" } }}
               >
                 <LinkedInIcon />
               </IconButton>
               <IconButton
                 aria-label="whatsapp"
                 href="#"
-                sx={{ color: "#ffffff", mr: 1, transition: "color 0.28s ease", "&:hover": { color: "#ff4c1c" } }}
+                sx={{ color: "#ffffff", mr: 1, transition: "color 0.28s ease", "&:hover": { color: "#2c68a5ff" } }}
               >
                 <WhatsAppIcon />
               </IconButton>
               <IconButton
                 aria-label="twitter"
                 href="#"
-                sx={{ color: "#ffffff", mr: 1, transition: "color 0.28s ease", "&:hover": { color: "#ff4c1c" } }}
+                sx={{ color: "#ffffff", mr: 1, transition: "color 0.28s ease", "&:hover": { color: "#2c68a5ff" } }}
               >
                 <TwitterIcon />
               </IconButton>
               <IconButton
                 aria-label="facebook"
                 href="#"
-                sx={{ color: "#ffffff", transition: "color 0.28s ease", "&:hover": { color: "#ff4c1c" } }}
+                sx={{ color: "#ffffff", transition: "color 0.28s ease", "&:hover": { color: "#2c68a5ff" } }}
               >
                 <FacebookIcon />
               </IconButton>
@@ -347,7 +347,7 @@ const Footer = () => {
                 href="#"
                 underline="none"
                 color="inherit"
-                sx={{ transition: "color 0.28s ease", "&:hover": { color: "#ff4c1c" } }}
+                sx={{ transition: "color 0.28s ease", "&:hover": { color: "#2c68a5ff" } }}
               >
                 Privacy Policy
               </Link>
@@ -356,7 +356,7 @@ const Footer = () => {
                 href="#"
                 underline="none"
                 color="inherit"
-                sx={{ transition: "color 0.28s ease", "&:hover": { color: "#ff4c1c" } }}
+                sx={{ transition: "color 0.28s ease", "&:hover": { color: "#2c68a5ff" } }}
               >
                 Terms & Conditions
               </Link>

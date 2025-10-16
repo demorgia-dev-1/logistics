@@ -16,12 +16,19 @@ import "slick-carousel/slick/slick-theme.css";
 const Section = styled(Box)(({ theme }) => ({
   background: "#F7F8FA",
   padding: "72px 0",
-  [theme.breakpoints.down("md")]: { padding: "56px 0" },
-  [theme.breakpoints.down("sm")]: { padding: "40px 0" },
+  paddingTop: "172px", // Add top padding to account for fixed navbar
+  [theme.breakpoints.down("md")]: { 
+    padding: "56px 0",
+    paddingTop: "156px", // Adjust for smaller navbar on mobile
+  },
+  [theme.breakpoints.down("sm")]: { 
+    padding: "40px 0",
+    paddingTop: "140px", // Adjust for mobile navbar
+  },
 }));
 
 const Label = styled(Typography)(() => ({
-  color: "#ff4c1c",
+  color: "#183d62ff",
   fontWeight: 700,
   textTransform: "uppercase",
   letterSpacing: "1px",
@@ -314,7 +321,7 @@ export default function Services() {
             sx={{
               fontWeight: 750,
               fontSize: { xs: 28, sm: 36, md: 56 },
-              color: "#ff4c1c",
+              color: "#183d62ff",
               textTransform: "uppercase",
               position: "relative",
               display: "inline-block",
@@ -328,7 +335,7 @@ export default function Services() {
                 left: 0,
                 width: "100%",
                 height: "4px",
-                backgroundColor: "#ff4c1c",
+                backgroundColor: "#183d62ff",
               }}
             />
           </Typography>
@@ -469,7 +476,7 @@ export default function Services() {
         .services-slider .slick-slide > div:hover .shine:before { left: 150%; }
 
         .services-slider .slick-slide > div:hover .badgeIcon {
-          background: #ff4c1c !important;
+          background: #183d62ff !important;
           color: #fff !important;
           transform: translateY(-6px);
         }

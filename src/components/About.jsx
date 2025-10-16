@@ -44,14 +44,14 @@ function AboutSection() {
               sx={{
                 fontSize: "0.95rem",
                 fontWeight: "bold",
-                color: "#ff4c1c",
+                color: "#183d62ff",
                 textTransform: "uppercase",
                 letterSpacing: "1px",
               }}
             >
               Our Company
             </Typography>
-            <Typography sx={{ color: "#ff4c1c" }}>✈</Typography>
+            <Typography sx={{ color: "#183d62ff" }}>✈</Typography>
           </Stack>
 
           {/* Heading */}
@@ -68,7 +68,7 @@ function AboutSection() {
                 variant="h3"
                 sx={{
                   fontWeight: "bold",
-                  color: "#ff4c1c",
+                  color: "#183d62ff",
                   textTransform: "uppercase",
                   lineHeight: 1.3,
                 }}
@@ -82,7 +82,7 @@ function AboutSection() {
                   left: 0,
                   width: "100%",
                   height: "4px",
-                  backgroundColor: "#ff4c1c",
+                  backgroundColor: "#183d62ff",
                 }}
               />
             </Box>
@@ -108,7 +108,7 @@ function AboutSection() {
               <Card
                 elevation={4}
                 sx={{
-                  borderLeft: "3px solid #ff4c1c",
+                  borderLeft: "3px solid #183d62ff",
                   maxWidth: "320px",
                   "&:hover": { boxShadow: 6 },
                 }}
@@ -121,7 +121,7 @@ function AboutSection() {
                     alignItems: "flex-start",
                   }}
                 >
-                  <PublicIcon sx={{ color: "#ff4c1c", fontSize: 40, mb: 1 }} />
+                  <PublicIcon sx={{ color: "#183d62ff", fontSize: 40, mb: 1 }} />
                   <Typography variant="h6" fontWeight="bold" gutterBottom>
                     Worldwide Service
                   </Typography>
@@ -139,7 +139,7 @@ function AboutSection() {
               <Card
                 elevation={3}
                 sx={{
-                  borderLeft: "3px solid #ff4c1c",
+                  borderLeft: "3px solid #183d62ff",
                   maxWidth: "320px",
                   "&:hover": { boxShadow: 6 },
                 }}
@@ -153,7 +153,7 @@ function AboutSection() {
                   }}
                 >
                   <SupportAgentIcon
-                    sx={{ color: "#ff4c1c", fontSize: 40, mb: 1 }}
+                    sx={{ color: "#183d62ff", fontSize: 40, mb: 1 }}
                   />
                   <Typography variant="h6" fontWeight="bold" gutterBottom>
                     24/7 Online Support
@@ -180,8 +180,8 @@ function AboutSection() {
               to="/about"
               variant="contained"
               sx={{
-                backgroundColor: "#ff4c1c",
-                "&:hover": { backgroundColor: "#e63e10" },
+                backgroundColor: "#183d62ff",
+                "&:hover": { backgroundColor: "#2c68a5ff" },
                 px: 4,
                 py: 1.5,
                 fontWeight: "bold",
@@ -196,12 +196,12 @@ function AboutSection() {
             <Stack>
               <Typography
                 variant="body2"
-                sx={{ color: "#ff4c1c", fontWeight: "bold" }}
+                sx={{ color: "#183d62ff", fontWeight: "bold" }}
               >
                 Make A Phone Call
               </Typography>
               <Stack direction="row" spacing={1} alignItems="center">
-                <PhoneIcon sx={{ color: "#ff4c1c" }} />
+                <PhoneIcon sx={{ color: "#183d62ff" }} />
                 <Typography
                   variant="h6"
                   sx={{ fontWeight: "bold", color: "#0b1c2c" }}
@@ -242,7 +242,7 @@ function AboutSection() {
                 position: "absolute",
                 bottom: { xs: "-20%", md: "-10%" },
                 left: { xs: "0%", md: "-10%" },
-                backgroundColor: "#ff4c1c",
+                backgroundColor: "#183d62ff",
                 color: "#fff",
                 borderRadius: "50%",
                 width: { xs: 120, md: 160 },
