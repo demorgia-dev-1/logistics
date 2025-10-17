@@ -87,8 +87,8 @@ function Navbar() {
           {/* Darker Logo Block */}
           <Box
             sx={{
-              backgroundColor: "#183d62ff",
-              clipPath: "polygon(0 0, 100% 0%, 85% 100%, 0% 100%)",
+              backgroundColor: "#0b253eff",
+              clipPath: "polygon(0 0, 100% 0%, 75% 100%, 0% 100%)",
               display: "flex",
               alignItems: "center",
               px: { xs: 2, md: 4 },
@@ -126,7 +126,7 @@ function Navbar() {
                   sx={{
                     ml: -2,
                     maxHeight: "100%",
-                    height: { xs: 140, md: 180 }, // slightly smaller on mobile
+                    height: { xs: 250, md: 250 }, // slightly smaller on mobile
                     width: "auto",
                     objectFit: "contain",
                     display: "block",
@@ -135,7 +135,7 @@ function Navbar() {
               </Box>
 
               {/* Company Name */}
-              <Box sx={{ display: "flex", flexDirection: "column", ml: -1 }}>
+              {/* <Box sx={{ display: "flex", flexDirection: "column", ml: -1 }}>
                 <Typography
                   variant="h5"
                   sx={{
@@ -147,7 +147,7 @@ function Navbar() {
                 >
                   Demorgia Aviation & Logistics
                 </Typography>
-              </Box>
+              </Box> */}
             </Box>
           </Box>
 
@@ -193,8 +193,8 @@ function Navbar() {
                 }
               }}
               sx={{
-                backgroundColor: "#183d62ff",
-                "&:hover": { backgroundColor: "#2c68a5ff" },
+                backgroundColor: "#0b253eff",
+                "&:hover": { backgroundColor: "#183d62ff" },
                 fontWeight: "bold",
                 fontSize: "14px",
                 px: 3,
