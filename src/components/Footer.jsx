@@ -61,22 +61,22 @@ const Footer = () => {
       {/* Top Section: 4 columns */}
       <Container
         maxWidth={false}
-        sx={{ px: { xs: 3, md: 12 }, position: "relative", mb: -4, mr: -1, mt: -3 }}
+        sx={{ px: { xs: 3, md: 12 }, position: "relative", mb: -4, mr: -3, mt: -3 }}
       >
         <Grid
           container
-          columnSpacing={{ xs: 4, md: 10 }}
+          columnSpacing={{ xs: 4, md: 12 }}
           rowSpacing={6}
           alignItems="flex-start"
         >
           {/* Column 1: Logo & About */}
           <Grid item xs={12} sm={6} md={3}>
-            <Box display="flex" alignItems="center" gap={2} mb={3} sx={{mr: -1}}>
+            <Box display="flex" flexDirection="column" alignItems="center"justifyContent="flex-start" gap={2} mb={3} ml={-6}>
               {/* Logo */}
               <Box
                 sx={{
-                  height: 70,
-                  width: 70,
+                  height: 90,
+                  width: 80,
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
@@ -87,7 +87,7 @@ const Footer = () => {
               >
                 <Box
                   component="img"
-                  src="/public/images/demorgia (2).png"
+                  src="/public/images/LogoDem.png"
                   alt="Company Logo"
                   sx={{
                     height: "290%",
@@ -97,7 +97,7 @@ const Footer = () => {
                 />
               </Box>
 
-              <Typography
+              {/* <Typography
                 variant="h5"
                 sx={{ fontWeight: 720, mt: -2, 
                   mb: 2,
@@ -107,7 +107,7 @@ const Footer = () => {
                 }}
               >
                 Demorgia Aviation & Logistics Pvt Ltd
-              </Typography>
+              </Typography> */}
             </Box>
 
             <Typography
@@ -350,7 +350,7 @@ const Footer = () => {
               © 2025 Demorgia Aviation & Logistics Pvt Ltd. All Rights Reserved.
             </Typography>
 
-            <Box display="flex" gap={3}>
+            {/* <Box display="flex" gap={3}>
               <Link
                 href="#"
                 underline="none"
@@ -368,7 +368,7 @@ const Footer = () => {
               >
                 Terms & Conditions
               </Link>
-            </Box>
+            </Box> */}
           </Box>
         </Container>
       </Box>

@@ -333,7 +333,7 @@ export default function AboutUs() {
             <Grid item xs={12} md={6}>
               <Box
                 component="img"
-                src="/images/license.jpg" // replace with your actual image path
+                src="/images/license.jpg" 
                 alt="Licenses & Approvals"
                 sx={{
                   width: "100%",

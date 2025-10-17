@@ -19,7 +19,7 @@ import { useNavigate } from "react-router-dom";
 // Styled section (full width)
 const StyledSection = styled("section")(({ theme }) => ({
   width: "100%",
-  backgroundColor: "#183d62ff",
+  backgroundColor: "#0b253eff",
   backgroundImage: "url(/images/why-choose-v1-pattern.png)",
   backgroundSize: "90% auto",
   backgroundPosition: "right center",

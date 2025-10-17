@@ -87,7 +87,7 @@ function Navbar() {
           {/* Darker Logo Block */}
           <Box
             sx={{
-              backgroundColor: "#0b253eff",
+              backgroundColor: "#183d62ff",
               clipPath: "polygon(0 0, 100% 0%, 75% 100%, 0% 100%)",
               display: "flex",
               alignItems: "center",
@@ -121,12 +121,12 @@ function Navbar() {
               >
                 <Box
                   component="img"
-                  src="/images/demorgia (2).png"
+                  src="/images/LogoDem.png"
                   alt="Demorgia Logo"
                   sx={{
                     ml: -2,
                     maxHeight: "100%",
-                    height: { xs: 250, md: 250 }, // slightly smaller on mobile
+                    height: { xs: 200, md: 200 }, // slightly smaller on mobile
                     width: "auto",
                     objectFit: "contain",
                     display: "block",
@@ -193,8 +193,8 @@ function Navbar() {
                 }
               }}
               sx={{
-                backgroundColor: "#0b253eff",
-                "&:hover": { backgroundColor: "#183d62ff" },
+                backgroundColor: "#183d62ff",
+                "&:hover": { backgroundColor: "#2c68a5ff" },
                 fontWeight: "bold",
                 fontSize: "14px",
                 px: 3,
@@ -278,10 +278,49 @@ function Navbar() {
           </Button>
           <Divider sx={{ my: 2 }} />
           <Box sx={{ display: "flex", gap: 1, justifyContent: "center" }}>
+            <IconButton
+            component="a"
+            href="https://www.facebook.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
+            sx={{ color: "#183d62ff" }}
+          >
             <Facebook />
+          </IconButton>
+
+          <IconButton
+            component="a"
+            href="https://www.instagram.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+            sx={{ color: "#E1306C" }}
+          >
             <Instagram />
+          </IconButton>
+
+          <IconButton
+            component="a"
+            href="https://www.linkedin.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+            sx={{ color: "#0A66C2" }}
+          >
             <LinkedIn />
+          </IconButton>
+
+          <IconButton
+            component="a"
+            href="https://www.google.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Search"
+            sx={{ color: "gray" }}
+          >
             <Search />
+          </IconButton>
           </Box>
         </Box>
       </Drawer>

@@ -125,11 +125,25 @@ const FAQAccordion = styled(Accordion)(({ theme }) => ({
   }
 }));
 
+// function CustomStepIconComponent(props) {
+//   const { active, completed, className, icon } = props;
+//   return (
+//     <CustomStepIcon ownerState={{ completed, active }} className={className}>
+//       {completed ? <CheckCircle sx={{ color: '#fff' }} /> : icon}
+//     </CustomStepIcon>
+//   );
+// }
 function CustomStepIconComponent(props) {
   const { active, completed, className, icon } = props;
+  const numericSteps = [1, 2];
+
   return (
     <CustomStepIcon ownerState={{ completed, active }} className={className}>
-      {completed ? <CheckCircle sx={{ color: '#fff' }} /> : icon}
+      {numericSteps.includes(Number(icon))
+        ? icon
+        : completed
+        ? <CheckCircle sx={{ color: '#fff' }} />
+        : icon}
     </CustomStepIcon>
   );
 }
@@ -271,7 +285,7 @@ const TrackShipmentSection = () => {
         {/* Progress Container */}
         <StyledStepper>
           {/* Heading + meta (always above) */}
-          <Box sx={{ mb: 3, textAlign: 'center' }}>
+          {/* <Box sx={{ mb: 3, textAlign: 'center' }}>
             <Typography variant="h6" sx={{ color: 'white', fontWeight: 600, mb: 1 }}>
               ORDER TRACKING, ORDER NO.
             </Typography>
@@ -293,7 +307,7 @@ const TrackShipmentSection = () => {
                 Expected Date : Nov 25th
               </Typography>
             </Box>
-          </Box>
+          </Box> */}
 
           {/* VERTICAL STEPPER on mobile (xs) - centered under heading */}
           <Box sx={{ display: { xs: 'flex', sm: 'none' }, justifyContent: 'center' }}>
